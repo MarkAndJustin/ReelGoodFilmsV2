@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom"
+
 const NavBar = () => {
   return (
     <nav>
-        <h2>Reel Good Films</h2>
+      <Link to='/'>
+          <h2>Reel Good Films</h2>      
+      </Link>
     </nav>
   )
 }

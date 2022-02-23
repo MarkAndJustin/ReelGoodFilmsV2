@@ -7,10 +7,12 @@ const Home = (props) => {
     <header>
         {props.moviesList.map(movie => {
             return (
-                <ul>
+                <ul className='movieList'>
                     <li>{movie.title}</li>
                     <li>
-                        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt="" />
+                        <Link to={`/movie/${movie.id}`}>
+                            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt="" />
+                        </Link>
                     </li>
                 </ul>
             )

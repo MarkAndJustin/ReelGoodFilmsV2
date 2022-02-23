@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Home from './components/Home';
 import Movies from './components/Movies';
+import MovieDetails from './components/MovieDetails';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home moviesList={movies}/>} /> 
         <Route path="/movies" element={<Movies />} />
+        <Route path="/movie/:movieID" element={<MovieDetails />} />
       </Routes>
     </>
   );
