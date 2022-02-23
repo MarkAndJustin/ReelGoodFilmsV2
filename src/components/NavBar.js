@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <nav>
       <Link to='/'>
-          <h2>Reel Good Films</h2>      
+          <h2 className="logo">Reel Good Films</h2>      
       </Link>
     </nav>
   )

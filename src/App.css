@@ -16,13 +16,16 @@ header {
   height: calc(100vh - 60px);
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   color: white;
   font-size: 3rem;
 }
 
 h2 {
-  color: goldenrod;
   font-size: 2rem;
 }
 
@@ -35,15 +38,12 @@ li {
 }
 
 .movie {
-  position: relative;
   width: 100%;
   height: calc(100vh - 60px);
 }
 
 .movieDetails {
-  position: absolute;
   color: white;
-  z-index: 1;
 }
 
 .movieRating {
@@ -54,7 +54,30 @@ li {
   color: lightslategrey;
 }
 
+.movieTrailerButton {
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+
+.addToListButton {
+  background-color: transparent;
+  outline: 1px solid white;
+  color: white;
+  padding: 10px;
+}
+
+.castListHeading {
+  color: white;
+}
+
 .castList {
   overflow: hidden;
   display: flex;
+  color: white;
+}
+
+.logo {
+  color: goldenrod;
 }
