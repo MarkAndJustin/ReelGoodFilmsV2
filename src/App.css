@@ -46,6 +46,15 @@ li {
   z-index: 1;
 }
 
+.movieRating {
+  color: rgb(70, 211, 105);
+}
+
 .movieOverview {
   color: lightslategrey;
+}
+
+.castList {
+  overflow: hidden;
+  display: flex;
 }
