@@ -13,7 +13,7 @@ html {
 
 header {
   /* background: url(./assets/noom-peerapong-2uwFEAGUm6E-unsplash.jpg); */
-  height: calc(100vh - 60px);
+  height: 100vh
 }
 
 a {
@@ -33,13 +33,20 @@ li {
   list-style: none;
 }
 
+nav {
+  position: absolute;
+  width: 100%;
+}
+
 .movieList {
   display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
 .movie {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100vh;
 }
 
 .movieDetails {
@@ -80,4 +87,43 @@ li {
 
 .logo {
   color: goldenrod;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 2160px;
+}
+
+.homeWrapper {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  max-width: 2160px;
+}
+
+.movieDescription {
+  margin-bottom: 100px;
+  width: 50%;
+}
+
+.movies {
+  background: black;
+}
+
+.genreHeader {
+  color: white;
+}
+
+.movieImage {
+  margin-right: 20px;
+  padding: 10px 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.movieImage:hover {
+  transform: scale(1.05);
 }
