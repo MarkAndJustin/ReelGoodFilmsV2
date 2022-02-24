@@ -27,7 +27,7 @@ const MovieDetails = () => {
         setMovie(resOne.data)
         setCast(slicedCast)
     }))
-  }, []);
+  }, [movieID]);
     
     const { title, backdrop_path, overview, vote_average } = movie
    
@@ -39,7 +39,8 @@ const MovieDetails = () => {
             backgroundSize: 'cover',
             backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${backdrop_path}")`
           }}>
-            <div className="movieDetails">
+            <div className="detailsWrapper">
+                <div className="movieDetails">
               <h2 className='movieTitle'>{title}</h2>  
               <h3 className='movieRating'>Rating: {vote_average}</h3>
               <p className="movieOverview">{overview}</p>
@@ -65,6 +66,7 @@ const MovieDetails = () => {
                   )
                 })
               }   
+            </div>
             </div>
             {/* <iframe 
               src={`https://www.youtube.com/embed/${videos.results[0].key}`} 

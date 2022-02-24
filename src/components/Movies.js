@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 
 const Movies = (props) => {
-  console.log(props.moviesList)
   return (
     <section className="movies">
       <div className="wrapper">

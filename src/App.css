@@ -96,7 +96,7 @@ nav {
   max-width: 2160px;
 }
 
-.homeWrapper {
+.homeWrapper, .detailsWrapper {
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -127,4 +127,36 @@ nav {
 
 .movieImage:hover {
   transform: scale(1.05);
+}
+
+.videoModal {
+  background-color: rgba(0,0,0,0.8);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+}
+
+.modalTitle {
+  color: white;
+}
+
+.closeButton {
+  color: white;
+}
+
+.youtube {
+  width: 50vw;
+  height: 50vh;
+}
+
+.modalControls {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
