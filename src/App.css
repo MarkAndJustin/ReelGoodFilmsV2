@@ -42,6 +42,12 @@ nav {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
+  scrollbar-color: yellow;
+  scrollbar-width: none;
+}
+
+.movieList::-webkit-scrollbar {
+  display: none;
 }
 
 .movie {
@@ -90,10 +96,12 @@ nav {
   color: goldenrod;
 }
 
-.wrapper {
+.navWrapper {
   width: 90%;
   margin: 0 auto;
   max-width: 2160px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .homeWrapper, .detailsWrapper {
@@ -160,3 +168,25 @@ nav {
   width: 100%;
   justify-content: space-evenly;
 }
+
+.searchIcon, .closeIcon {
+  color: white;
+  font-size: 2rem;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  /* background-color: lightcoral; */
+  flex-direction: row-reverse;
+  width: 30%;
+}
+
+.searchForm input[type="text"] {
+  width: 100%;
+  background: grey;
+  padding: 10px 0 10px 10px;
+  color: white;
+  border: none;
+}
+
