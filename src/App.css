@@ -38,6 +38,12 @@ nav {
   width: 100%;
 }
 
+.wrapper {
+  width: 90%;
+  max-width: 2160px;
+  margin: 0 auto;
+}
+
 .movieList {
   display: flex;
   overflow-y: hidden;
@@ -190,3 +196,11 @@ nav {
   border: none;
 }
 
+.searchPage {
+  background-color: black;
+  height: 100vh;
+}
+
+.movieTitle {
+  color: white;
+}
