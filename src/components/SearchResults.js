@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom"
-import Movies from "./Movies";
 
 const SearchResults = () => {
   const { state } = useLocation();
@@ -8,13 +7,18 @@ const SearchResults = () => {
 
   return (
     <section className="searchPage">
-      {state.map(movie => {
-        return (
-          <div>
-            <div className="movieTitle">{movie.title}</div>
-          </div>
-        )
-      })}
+      <div className="wrapper searchPageWrapper">
+        {state.map(movie => {
+          return (
+            <div>
+              <div className="movieTitle">{movie.title}</div>
+              <img 
+                  src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                  alt={`A poster for ${movie.title}`} />
+            </div>
+          )
+        })}
+      </div>
     </section>
   )
 }

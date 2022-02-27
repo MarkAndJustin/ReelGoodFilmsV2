@@ -20,6 +20,10 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: whitesmoke;
+}
+
 h1 {
   color: white;
   font-size: 3rem;
@@ -139,6 +143,10 @@ nav {
   transition: transform 0.2s ease-in-out;
 }
 
+.movieContainer {
+  position: relative;
+}
+
 .movieImage:hover {
   transform: scale(1.05);
 }
@@ -198,9 +206,44 @@ nav {
 
 .searchPage {
   background-color: black;
-  height: 100vh;
 }
 
 .movieTitle {
   color: white;
+}
+
+.searchPageWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.heart {
+  color: goldenrod;
+}
+
+.movieOverlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+  visibility: hidden;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in;
+  transform: translateY(100%);
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.movieImage:hover + .movieOverlay {
+  visibility: visible;
+  transform: translateY(0);
+  transform: scale(1.05);
 }

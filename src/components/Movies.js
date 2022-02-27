@@ -10,12 +10,17 @@ const Movies = (props) => {
             return (
               <div>
                   <Link to={`/movie/${movie.id}`}>
+                    <div className="movieContainer">
                       <img  
                         key={movie.id}
                         className='movieImage' 
                         src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} 
                         alt={`A poster for ${movie.title}`} 
                       />
+                      <div className="movieOverlay">
+                        <h4 className="movieTitle">{movie.title}</h4>
+                      </div>
+                    </div>
                   </Link>
               </div>
             )
