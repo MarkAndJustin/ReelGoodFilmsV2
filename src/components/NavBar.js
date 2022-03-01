@@ -7,6 +7,7 @@ const NavBar = () => {
   const [isInputShown, setIsInputShown] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [fixNav, setFixNav] = useState(false)
   let navigate = useNavigate();
 
   const handleSearchClick = () => {
@@ -33,10 +34,20 @@ const NavBar = () => {
       console.log(res)
       setSearchResults(res.data.results)
     })
-  }, [searchQuery])
+  }, [searchQuery]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      setFixNav(window.scrollY > 100);
+    });
+
+    return () => {
+      window.removeEventListener('scroll')
+    }
+  }, [])
 
   return (
-    <nav>
+    <nav className={`navbar ${fixNav && 'navbar-background'}`}>
       <div className="navWrapper">
         <Link to='/'>
           <h2 className="logo">Reel Good Films</h2>      

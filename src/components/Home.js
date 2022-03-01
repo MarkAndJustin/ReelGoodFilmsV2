@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BsPlayFill } from 'react-icons/bs';
 import { GoPlus } from 'react-icons/go';
 
+
 import Movies from './Movies';
 import VideoModal from './VideoModal';
 import movieTrailer from 'movie-trailer';
@@ -103,4 +104,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

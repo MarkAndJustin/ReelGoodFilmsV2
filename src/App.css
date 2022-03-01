@@ -37,9 +37,17 @@ li {
   list-style: none;
 }
 
+/* Navigation */
 nav {
-  position: absolute;
+  position: fixed;
   width: 100%;
+  z-index: 2;
+  padding: 10px 0;
+}
+
+.navbar-background {
+  background-color: black;
+  transition: all 0.3s ease-in-out;
 }
 
 .wrapper {
@@ -76,20 +84,45 @@ nav {
 .movieOverview {
   color: lightslategrey;
   padding: 40px 0;
+  font-size: 1rem;
+  line-height: 40px;
 }
 
+/* Buttons */
 .movieTrailerButton {
   background-color: goldenrod;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 15px 20px;
+  outline: 1px solid goldenrod;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.movieTrailerButton:hover, 
+.movieTrailerButton:focus {
+  background-color: white;
+  color: goldenrod;
 }
 
 .addToListButton {
   background-color: transparent;
+  border: none;
   outline: 1px solid white;
   color: white;
-  padding: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.addToListButton:hover, 
+.addToListButton:focus {
+  background-color: white;
+  color: goldenrod;
+  outline: 1px solid goldenrod;
 }
 
 .castListHeading {
@@ -186,6 +219,7 @@ nav {
 .searchIcon, .closeIcon {
   color: white;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .searchForm {
@@ -197,11 +231,13 @@ nav {
 }
 
 .searchForm input[type="text"] {
-  width: 100%;
-  background: grey;
+  animation: grow 0.5s forwards;
+  background: none;
   padding: 10px 0 10px 10px;
   color: white;
   border: none;
+  border-bottom: 1px solid white;
+  font-size: 1rem;
 }
 
 .searchPage {
@@ -246,4 +282,12 @@ footer {
   visibility: visible;
   transform: translateY(0);
   transform: scale(1.05);
+}
+
+@keyframes grow {
+  from {
+    width: 0;
+  } to {
+    width: 100%;
+  }
 }
