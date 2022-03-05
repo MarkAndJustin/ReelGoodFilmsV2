@@ -17,17 +17,29 @@ const Home = () => {
   const [horrorMovies, setHorrorMovies] = useState([]);
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
+  const [index, setIndex] = useState(0)
 
-  const randomNumberHandler = (maxNumber) => {
-    const generateRandomNum = Math.floor(Math.random() * maxNumber);
-    return generateRandomNum
-  }
+  // const randomNumberHandler = (maxNumber) => {
+  //   const generateRandomNum = Math.floor(Math.random() * maxNumber);
+  //   return generateRandomNum
+  // }
 
-  const randomNumber = randomNumberHandler(movies.length);
+  // const randomNumber = randomNumberHandler(movies.length);
+
+  useEffect(() => {
+    if(index < movies.length) {
+      setTimeout(
+        () => setIndex((prevIndex) => prevIndex + 1),
+        10000
+      )   
+    }
+
+    console.log(index)
+  }, [index, movies.length])
 
   const handleShowModal = () => {
     setIsModalOpened(true)
-    movieTrailer(movies[randomNumber]?.title || "")
+    movieTrailer(movies[index]?.title || "")
     .then(url => {
       const urlParams = new URLSearchParams(new URL(url).search)
       setTrailerUrl(urlParams.get("v"))
@@ -75,13 +87,13 @@ const Home = () => {
     <>
       {movies.length > 0 && <header style={{
         backgroundSize: 'cover',
-        backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${movies[randomNumber].backdrop_path}")`,    
+        backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${movies[index].backdrop_path}")`,    
       }}>
         <div className="homeWrapper">
           {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}
           <div className="movieDescription">
-            <h1>{movies[randomNumber].title}</h1>
-            <p className='movieOverview'>{movies[randomNumber].overview}</p>
+            <h1>{movies[index].title}</h1>
+            <p className='movieOverview'>{movies[index].overview}</p>
             <div className="movieButtonsContainer">
               <button className='movieTrailerButton' onClick={handleShowModal}>
                 <BsPlayFill />

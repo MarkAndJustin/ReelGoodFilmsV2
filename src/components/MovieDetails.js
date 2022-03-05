@@ -50,7 +50,6 @@ const MovieDetails = () => {
   }, [movieID]);
     
     const { title, backdrop_path, overview, vote_average } = movie
-   
 
 
     return (
@@ -78,9 +77,9 @@ const MovieDetails = () => {
               </div>
               <h3 className='castListHeading'>Starring:</h3>
               <div className='castList'>
-                {cast.map(actor => {  
+                {cast.map(actor => {
                   return (
-                    <div className="actorContainer">
+                    <div className="actorContainer" key={actor.id}>
                       <p>{actor.original_name}</p>
                       <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt="" />
                     </div>

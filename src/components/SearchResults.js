@@ -10,7 +10,7 @@ const SearchResults = () => {
       <div className="wrapper searchPageWrapper">
         {state.map(movie => {
           return (
-            <div>
+            <div key={movie.id}>
               <div className="movieTitle">{movie.title}</div>
               <img 
                   src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
