@@ -19,22 +19,16 @@ const Home = () => {
   const [trailerUrl, setTrailerUrl] = useState("");
   const [index, setIndex] = useState(0)
 
-  // const randomNumberHandler = (maxNumber) => {
-  //   const generateRandomNum = Math.floor(Math.random() * maxNumber);
-  //   return generateRandomNum
-  // }
-
-  // const randomNumber = randomNumberHandler(movies.length);
-
+  //useEffect for movie slideshow. 
   useEffect(() => {
     if(index < movies.length) {
       setTimeout(
         () => setIndex((prevIndex) => prevIndex + 1),
-        10000
+        20000
       )   
+    } else {
+      return
     }
-
-    console.log(index)
   }, [index, movies.length])
 
   const handleShowModal = () => {

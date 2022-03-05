@@ -70,7 +70,7 @@ nav {
 
 .movie {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 50px);
 }
 
 .movieDetails {
@@ -86,6 +86,7 @@ nav {
   padding: 40px 0;
   font-size: 1rem;
   line-height: 40px;
+  width: 50%;
 }
 
 /* Buttons */
@@ -127,12 +128,17 @@ nav {
 
 .castListHeading {
   color: white;
+  margin-top: 20px;
 }
 
 .castList {
   overflow: hidden;
   display: flex;
   color: white;
+}
+
+.castList img {
+  margin-right: 30px;
 }
 
 .logo {
@@ -185,7 +191,7 @@ nav {
 }
 
 .videoModal {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(255,0,0,0.8);
   height: 100vh;
   position: absolute;
   width: 100%;
@@ -195,6 +201,7 @@ nav {
   align-items: center;
   justify-content: center;
   left: 0;
+  z-index: 2;
 }
 
 .modalTitle {
@@ -203,11 +210,16 @@ nav {
 
 .closeButton {
   color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .youtube {
-  width: 50vw;
-  height: 50vh;
+  width: 1280px;
+  height: 720px;
 }
 
 .modalControls {
@@ -251,7 +263,8 @@ nav {
 .searchPageWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding-top: 100px;
 }
 
 footer {
