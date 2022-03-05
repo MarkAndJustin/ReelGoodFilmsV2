@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { BsPlayFill } from 'react-icons/bs';
 import { GoPlus } from 'react-icons/go';
@@ -17,18 +17,16 @@ const Home = () => {
   const [horrorMovies, setHorrorMovies] = useState([]);
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
+  const timeoutRef = useRef(null);
 
   //useEffect for movie slideshow. 
   useEffect(() => {
-    if(index < movies.length) {
-      setTimeout(
-        () => setIndex((prevIndex) => prevIndex + 1),
+      timeoutRef.current = setTimeout(
+        () => setIndex((prevIndex) => prevIndex  === movies.length - 1 ? 0: prevIndex + 1),
         20000
       )   
-    } else {
-      return
-    }
+      console.log(index, timeoutRef.current)
   }, [index, movies.length])
 
   const handleShowModal = () => {
@@ -37,7 +35,6 @@ const Home = () => {
     .then(url => {
       const urlParams = new URLSearchParams(new URL(url).search)
       setTrailerUrl(urlParams.get("v"))
-      console.log(trailerUrl)
     }).catch((error) => {
       console.log(error)
     }) 
