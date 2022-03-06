@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { BsPlayFill } from 'react-icons/bs';
 import { GoPlus } from 'react-icons/go';
-
+import styles from './Home.module.css';
 
 import Movies from './Movies';
 import VideoModal from './VideoModal';
@@ -89,17 +89,17 @@ const Home = () => {
         backgroundSize: 'cover',
         backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${movies[index].backdrop_path}")`,    
       }}>
-        <div className="homeWrapper">
+        <div className={styles.homeWrapper}>
           {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}
-          <div className="movieDescription">
+          <div className={styles.movieDescription}>
             <h1>{movies[index].title}</h1>
-            <p className='movieOverview'>{movies[index].overview}</p>
-            <div className="movieButtonsContainer">
-              <button className='movieTrailerButton' onClick={handleShowModal}>
+            <p className={styles.movieOverview}>{movies[index].overview}</p>
+            <div>
+              <button className={styles.movieTrailerButton} onClick={handleShowModal}>
                 <BsPlayFill />
                 Watch Trailer
               </button>
-              <button className='addToListButton'>
+              <button className={styles.addToListButton}>
                 <GoPlus />
                 Add to List
               </button>

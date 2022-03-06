@@ -1,0 +1,46 @@
+.searchPage {
+  background-color: black;
+}
+
+
+
+.searchPageWrapper {
+  padding-top: 100px;
+}
+
+.searchMoviesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.searchMovieOverlay {
+  position: relative;
+  transition: all 0.3s ease-in;
+}
+
+.searchMovieDescription {
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.searchResultsPoster {
+  transition: transform 0.3s ease-in-out;
+}
+
+.searchResultsPoster:hover {
+  transform: scale(1.05);
+}
+
+.searchResultsPoster:hover + .searchMovieDescription {
+    transform: scale(1.1);
+}
+
+.searchHeading {
+  color: white;
+  font-size: 1.5rem;
+}

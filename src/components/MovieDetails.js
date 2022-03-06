@@ -5,6 +5,7 @@ import { BsPlayFill } from 'react-icons/bs';
 import { GoPlus } from 'react-icons/go';
 import VideoModal from './VideoModal';
 import movieTrailer from 'movie-trailer';
+import styles from './MovieDetails.module.css'
 
 const MovieDetails = () => {
     const { movieID } = useParams();
@@ -51,37 +52,36 @@ const MovieDetails = () => {
     
     const { title, backdrop_path, overview, vote_average } = movie
 
-
     return (
         <>
-          <div className="movie" style={{
+          <div className={styles.movie} style={{
             backgroundSize: 'cover',
             backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${backdrop_path}")`
           }}>
-            <div className="detailsWrapper">
+            <div className={styles.detailsWrapper}>
               {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}
-                <div className="movieDetails">
-                  <h2 className='movieTitle'>{title}</h2>  
-                  <h3 className='movieRating'>Rating: {vote_average}</h3>
-                  <p className="movieOverview">{overview}</p>
+                <div className={styles.movieDetails}>
+                  <h2 className={styles.movieTitle}>{title}</h2>  
+                  <h3 className={styles.movieRating}>Rating: {vote_average}</h3>
+                  <p className={styles.movieOverview}>{overview}</p>
                 </div>
-              <div className="movieButtonsContainer">
-                <button className='movieTrailerButton' onClick={handleShowModal}>
+              <div>
+                <button className={styles.movieTrailerButton} onClick={handleShowModal}>
                   <BsPlayFill />
                   Watch Trailer
                 </button>
-                <button className='addToListButton'>
+                <button className={styles.addToListButton}>
                   <GoPlus />
                   Add to List
                 </button>
               </div>
-              <h3 className='castListHeading'>Starring:</h3>
-              <div className='castList'>
+              {cast.length > 0 ? <h3 className={styles.castHeading}>Starring:</h3> : <h3 className={styles.castHeading}>Cast Not Found</h3>}
+              <div className={styles.castList}>
                 {cast.map(actor => {
                   return (
-                    <div className="actorContainer" key={actor.id}>
+                    <div key={actor.id}>
                       <p>{actor.original_name}</p>
-                      <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt="" />
+                      <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.original_name} />
                     </div>
                     )
                   })

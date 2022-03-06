@@ -1,0 +1,56 @@
+.movies {
+  background: black;
+}
+
+.genreHeader {
+  color: white;
+}
+
+.movieList {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scrollbar-color: yellow;
+  scrollbar-width: none;
+}
+
+.movieList::-webkit-scrollbar {
+  display: none;
+}
+
+.movieContainer {
+  position: relative;
+}
+
+.movieImage {
+  margin-right: 20px;
+  padding: 10px 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.movieImage:hover {
+  transform: scale(1.05);
+}
+
+.movieOverlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+  visibility: hidden;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in;
+  transform: translateY(100%);
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.movieImage:hover + .movieOverlay {
+  visibility: visible;
+  transform: translateY(0);
+  transform: scale(1.05);
+}
+
+.movieTitle {
+    color: white;
+}

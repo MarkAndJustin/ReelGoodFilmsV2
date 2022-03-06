@@ -1,0 +1,58 @@
+.homeWrapper {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  max-width: 2160px;
+}
+
+.movieDescription {
+  margin-bottom: 100px;
+  width: 50%;
+}
+
+.movieOverview {
+  color: lightslategrey;
+  padding: 40px 0;
+  font-size: 1rem;
+  line-height: 40px;
+  /* width: 50%; */
+}
+
+.movieTrailerButton {
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  outline: 1px solid goldenrod;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.movieTrailerButton:hover, 
+.movieTrailerButton:focus {
+  background-color: white;
+  color: goldenrod;
+}
+
+.addToListButton {
+  background-color: transparent;
+  border: none;
+  outline: 1px solid white;
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.addToListButton:hover, 
+.addToListButton:focus {
+  background-color: white;
+  color: goldenrod;
+  outline: 1px solid goldenrod;
+}

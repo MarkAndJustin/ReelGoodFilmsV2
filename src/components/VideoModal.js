@@ -1,5 +1,6 @@
 import { IoClose } from 'react-icons/io5'
 import YouTube from 'react-youtube'
+import styles from './VideoModal.module.css'
 
 const VideoModal = (props) => {
 
@@ -8,11 +9,11 @@ const VideoModal = (props) => {
   }
 
   return (
-    <div className="videoModal">
-        <div className="modalControls">
+    <div className={styles.videoModal}>
+        <div className={styles.modalControls}>
             <IoClose className="closeButton" onClick={props.onShowModal}/>
         </div>
-        <YouTube className='youtube' videoId={props.videoSrc} opts={options} />
+        <YouTube className={styles.youtube} videoId={props.videoSrc} opts={options} />
     </div>
   )
 }

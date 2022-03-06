@@ -1,4 +1,5 @@
-import { useLocation, Link } from "react-router-dom"
+import { useLocation, Link } from "react-router-dom";
+import styles from './SearchResults.module.css';
 
 const SearchResults = () => {
   const { state } = useLocation();
@@ -6,21 +7,27 @@ const SearchResults = () => {
 
 
   return (
-    <section className="searchPage">
-      <div className="wrapper searchPageWrapper">
-        {state.map(movie => {
+    <section className={styles.searchPage}>
+      <div className={`wrapper ${styles.searchPageWrapper}`}>
+        <h2 className={styles.searchHeading}>Search Results:</h2>
+        <div className={styles.searchMoviesContainer}>
+          {state.map(movie => {
           return (
             <Link to={`/movie/${movie.id}`}>
-              <div key={movie.id}>
-                <div className="movieTitle">{movie.title}</div>
+              <div key={movie.id} className={styles.searchMovieOverlay}>
                 <img 
-                  src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+                  className={styles.searchResultsPoster}
+                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                   alt={`A poster for ${movie.title}`} 
                 />
+                <div className={styles.searchMovieDescription}>
+                    <div className={styles.movieTitle}>{movie.title}</div>
+                </div>
               </div>
             </Link>
           )
         })}
+        </div>
       </div>
     </section>
   )
