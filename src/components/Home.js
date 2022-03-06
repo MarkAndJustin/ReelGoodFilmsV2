@@ -20,13 +20,22 @@ const Home = () => {
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
+  const resetTimeout = () => {
+    if(timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+  }
+
   //useEffect for movie slideshow. 
   useEffect(() => {
+      resetTimeout()
       timeoutRef.current = setTimeout(
         () => setIndex((prevIndex) => prevIndex  === movies.length - 1 ? 0: prevIndex + 1),
-        20000
+        10000
       )   
-      console.log(index, timeoutRef.current)
+      return () => {
+        resetTimeout()
+      }
   }, [index, movies.length])
 
   const handleShowModal = () => {
