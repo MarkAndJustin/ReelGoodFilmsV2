@@ -1,30 +1,34 @@
-import { IoIosSearch, IoMdClose} from "react-icons/io"
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import styles from './SearchForm.module.css'
+import { IoIosSearch, IoMdClose} from "react-icons/io"
+import styles from './SearchForm.module.css';
 
 const SearchForm = () => {
-    
+    //State
     const [isInputShown, setIsInputShown] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    
+    //Allows for automatic redirect to a certain view/component
     let navigate = useNavigate();
 
+    //Icon click controls.
     const handleSearchClick = () => {
-        setIsInputShown(true)
-    }
+        setIsInputShown(true);
+    };
 
     const handleSearchClose = () => {
-      setIsInputShown(false)
-    }
+      setIsInputShown(false);
+    };
 
     const handleFormSubmit = (event) => {
       event.preventDefault();
-      console.log('submitted')
-      navigate('/results', {state: searchResults})
-    }
+      //Redirects to 'results' route on form submission.
+      navigate('/results', {state: searchResults});
+    };
 
+    //Makes API call 
     useEffect(()=>{
       axios({
         url: `https://api.themoviedb.org/3/search/movie?query=${searchQuery}`,
@@ -40,15 +44,31 @@ const SearchForm = () => {
       })
     }, [searchQuery]);
 
-
     return (
       <>
         <form className={styles.searchForm} onSubmit={handleFormSubmit} >
-            {isInputShown ? <IoMdClose onClick={handleSearchClose} className={styles.closeIcon} /> : <IoIosSearch className={styles.searchIcon} onClick={handleSearchClick} /> }
-            {isInputShown && <input type="text" placeholder="Search for a movie" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />}
+            {isInputShown ? 
+              <IoMdClose 
+                onClick={handleSearchClose} 
+                className={styles.closeIcon}
+                title="Close" 
+              /> : 
+              <IoIosSearch 
+                className={styles.searchIcon} 
+                onClick={handleSearchClick} 
+                title="Search For A Movie"
+              />}
+            {isInputShown && 
+              <input 
+                type="text" 
+                placeholder="Search for a movie" 
+                value={searchQuery} 
+                //Sets searchQuery state to the value of the event target. 
+                onChange={e => setSearchQuery(e.target.value)} 
+              />}
         </form>
       </>
     )
 }
 
-export default SearchForm
+export default SearchForm;

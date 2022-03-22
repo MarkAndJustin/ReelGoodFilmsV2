@@ -1,9 +1,18 @@
 .myList {
     background: black;
     color: white;
-    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
 }
 
 .myListWrapper {
     padding-top: 100px;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin-right: 20px;
 }

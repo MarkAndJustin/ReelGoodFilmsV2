@@ -6,7 +6,7 @@ nav {
   padding: 10px 0;
 }
 
-.navbar-background {
+.navbarBackground {
   background-color: black;
   transition: background-color 0.3s ease-in-out;
 }
@@ -27,11 +27,11 @@ nav {
 .heart {
   color: white;
   font-size: 2rem;
+  margin: 5px 0 0 10px;
 }
 
-.test {
+.navContainer {
   display: flex;
-  /* background-color: lightblue; */
   width: 50%;
   justify-content: flex-end;
 }

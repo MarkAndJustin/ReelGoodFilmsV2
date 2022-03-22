@@ -17,9 +17,8 @@ const MovieDetails = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
 
-  
-
-    const handleShowModal = () => {
+  //video modal controls
+  const handleShowModal = () => {
     setIsModalOpened(true)
     movieTrailer(movie?.title || "")
     .then(url => {
@@ -51,13 +50,11 @@ const MovieDetails = () => {
     }))
   }, [movieID]);
     
-    const { title, backdrop_path, overview, vote_average } = movie;
-    
-    
+  const { title, backdrop_path, overview, vote_average } = movie;  
 
   const handleAddMovie = () => {
     const database = getDatabase(firebase);
-    const dbRef = ref(database);
+    const dbRef = ref(database, 'favorite-movies/');
     push(dbRef, movie);
   }
 

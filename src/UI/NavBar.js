@@ -6,7 +6,6 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import styles from "./NavBar.module.css";
 //Components
 import SearchForm from "./SearchForm";
-import MyList from "../components/MyList";
 
 const NavBar = () => {
   const [fixNav, setFixNav] = useState(false);
@@ -22,15 +21,15 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${fixNav && 'navbar-background'}`}>
+    <nav className={`navbar ${fixNav && styles.navbarBackground}`}>
       <div className={styles.navWrapper}>
         <Link to='/'>
           <h2 className={styles.logo}>Reel Good Films</h2>      
         </Link>
-        <div className={styles.test}>
+        <div className={styles.navContainer}>
           <SearchForm />
           <Link to='/mylist'>
-            <IoIosHeartEmpty className={styles.heart} />
+            <IoIosHeartEmpty className={styles.heart} title="My List" />
           </Link>
         </div>
       </div>
