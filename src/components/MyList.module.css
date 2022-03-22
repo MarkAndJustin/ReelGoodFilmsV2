@@ -1,0 +1,9 @@
+.myList {
+    background: black;
+    color: white;
+    height: calc(100vh - 50px);
+}
+
+.myListWrapper {
+    padding-top: 100px;
+}

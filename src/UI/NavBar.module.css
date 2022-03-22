@@ -17,8 +17,21 @@ nav {
   max-width: 2160px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   color: goldenrod;
+}
+
+.heart {
+  color: white;
+  font-size: 2rem;
+}
+
+.test {
+  display: flex;
+  /* background-color: lightblue; */
+  width: 50%;
+  justify-content: flex-end;
 }

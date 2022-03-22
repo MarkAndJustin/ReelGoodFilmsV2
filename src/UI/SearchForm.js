@@ -1,4 +1,4 @@
-import { IoIosSearch, IoMdClose } from "react-icons/io"
+import { IoIosSearch, IoMdClose} from "react-icons/io"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -32,17 +32,22 @@ const SearchForm = () => {
           api_key: 'abca8adda9e521b362fff5ab08ec8402', 
         }
       }).then((res) => {
-        console.log(res)
         setSearchResults(res.data.results)
+      }).catch((error) => {
+        if(error.response) {
+          console.log(error.response)
+        }
       })
     }, [searchQuery]);
 
 
     return (
-        <form action="" className={styles.searchForm} onSubmit={handleFormSubmit} >
+      <>
+        <form className={styles.searchForm} onSubmit={handleFormSubmit} >
             {isInputShown ? <IoMdClose onClick={handleSearchClose} className={styles.closeIcon} /> : <IoIosSearch className={styles.searchIcon} onClick={handleSearchClick} /> }
-            {isInputShown && <input type="text" placeholder="Search for a movie" value={searchQuery} onInput={e => setSearchQuery(e.target.value)} />}
+            {isInputShown && <input type="text" placeholder="Search for a movie" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />}
         </form>
+      </>
     )
 }
 

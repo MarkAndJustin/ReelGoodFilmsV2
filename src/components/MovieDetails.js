@@ -1,18 +1,23 @@
-import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { BsPlayFill } from 'react-icons/bs';
 import { GoPlus } from 'react-icons/go';
-import VideoModal from './VideoModal';
+import VideoModal from '../UI/VideoModal';
 import movieTrailer from 'movie-trailer';
-import styles from './MovieDetails.module.css'
+import styles from './MovieDetails.module.css';
+import firebase from '../firebase';
+import {getDatabase, ref, push} from 'firebase/database';
+
 
 const MovieDetails = () => {
-    const { movieID } = useParams();
-    const [ movie, setMovie ] = useState([]);
-    const [ cast, setCast ] = useState([]);
-    const [isModalOpened, setIsModalOpened] = useState(false);
-    const [trailerUrl, setTrailerUrl] = useState("");
+  const {movieID} = useParams();
+  const [movie, setMovie] = useState([]);
+  const [cast, setCast] = useState([]);
+  const [isModalOpened, setIsModalOpened] = useState(false);
+  const [trailerUrl, setTrailerUrl] = useState("");
+
+  
 
     const handleShowModal = () => {
     setIsModalOpened(true)
@@ -20,7 +25,6 @@ const MovieDetails = () => {
     .then(url => {
       const urlParams = new URLSearchParams(new URL(url).search)
       setTrailerUrl(urlParams.get("v"))
-      console.log(trailerUrl)
     }).catch((error) => {
       console.log(error)
     }) 
@@ -41,16 +45,21 @@ const MovieDetails = () => {
       .then(axios.spread((...responses) => {
         const resOne = responses[0];
         const resTwo = responses[1];
-        console.log(resTwo.data.cast)
-        console.log(resOne.data)
         const slicedCast = resTwo.data.cast.slice(0, 5);
-        console.log(slicedCast)
         setMovie(resOne.data)
         setCast(slicedCast)
     }))
   }, [movieID]);
     
-    const { title, backdrop_path, overview, vote_average } = movie
+    const { title, backdrop_path, overview, vote_average } = movie;
+    
+    
+
+  const handleAddMovie = () => {
+    const database = getDatabase(firebase);
+    const dbRef = ref(database);
+    push(dbRef, movie);
+  }
 
     return (
         <>
@@ -70,7 +79,7 @@ const MovieDetails = () => {
                   <BsPlayFill />
                   Watch Trailer
                 </button>
-                <button className={styles.addToListButton}>
+                <button className={styles.addToListButton} onClick={handleAddMovie}>
                   <GoPlus />
                   Add to List
                 </button>

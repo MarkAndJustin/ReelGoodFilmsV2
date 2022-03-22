@@ -5,8 +5,10 @@ import { GoPlus } from 'react-icons/go';
 import styles from './Home.module.css';
 
 import Movies from './Movies';
-import VideoModal from './VideoModal';
+import VideoModal from '../UI/VideoModal';
 import movieTrailer from 'movie-trailer';
+import firebase from '../firebase';
+import {getDatabase, ref, push} from 'firebase/database';
 
 
 const Home = () => {
@@ -18,12 +20,21 @@ const Home = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
   const [index, setIndex] = useState(0);
+  const [addToList, setAddToList] = useState([])
   const timeoutRef = useRef(null);
 
   const resetTimeout = () => {
     if(timeoutRef.current) {
       clearTimeout(timeoutRef.current)
     }
+  }
+
+  const handleAddToList = (event, movie) => {
+    event.preventDefault();
+    const database = getDatabase(firebase);
+    const dbRef = ref(database);
+    setAddToList(movie)
+    push(dbRef, addToList)
   }
 
   //useEffect for movie slideshow. 
@@ -54,7 +65,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    let trendingMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402&include_video=true';
+    let trendingMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402';
     let actionMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402&with_genres=28';
     let animatedMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402&with_genres=16';
     let comedyMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402&with_genres=35';
@@ -99,7 +110,7 @@ const Home = () => {
                 <BsPlayFill />
                 Watch Trailer
               </button>
-              <button className={styles.addToListButton}>
+              <button className={styles.addToListButton} onClick={handleAddToList}>
                 <GoPlus />
                 Add to List
               </button>

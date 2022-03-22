@@ -9,7 +9,7 @@
   align-items: center;
   /* background-color: lightcoral; */
   flex-direction: row-reverse;
-  width: 30%;
+  width: 100%;
 }
 
 .searchForm input[type="text"] {

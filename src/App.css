@@ -48,54 +48,11 @@ li {
   list-style: none;
 }
 
-
-
 .wrapper {
   width: 90%;
   max-width: 2160px;
   margin: 0 auto;
 }
-
-.movieList {
-  display: flex;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  scrollbar-color: yellow;
-  scrollbar-width: none;
-}
-
-.movieList::-webkit-scrollbar {
-  display: none;
-}
-
-
-
-
-
-.movies {
-  background: black;
-}
-
-.genreHeader {
-  color: white;
-}
-
-.movieImage {
-  margin-right: 20px;
-  padding: 10px 0;
-  transition: transform 0.2s ease-in-out;
-}
-
-.movieContainer {
-  position: relative;
-}
-
-.movieImage:hover {
-  transform: scale(1.05);
-}
-
-
-
 
 .closeButton {
   color: white;
@@ -106,90 +63,4 @@ li {
   cursor: pointer;
 }
 
-.youtube {
-  width: 1280px;
-  height: 720px;
-}
 
-
-
-
-
-
-.searchPage {
-  background-color: black;
-}
-
-
-
-.searchPageWrapper {
-  padding-top: 100px;
-}
-
-.searchMoviesContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-
-
-.heart {
-  color: goldenrod;
-}
-
-.movieOverlay {
-  position: absolute;
-  background-color: rgba(0,0,0,0.8);
-  visibility: hidden;
-  left: 0;
-  bottom: 0;
-  transition: all 0.3s ease-in;
-  transform: translateY(100%);
-  width: 100%;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.searchMovieOverlay {
-  position: relative;
-  transition: all 0.3s ease-in;
-}
-
-.searchMovieDescription {
-  background-color: rgba(0,0,0,0.8);
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  padding: 10px;
-  width: 100%;
-}
-
-.movieImage:hover + .movieOverlay {
-  visibility: visible;
-  transform: translateY(0);
-  transform: scale(1.05);
-}
-
-
-
-.searchResultsPoster {
-  transition: transform 0.3s ease-in-out;
-}
-
-.searchResultsPoster:hover {
-  transform: scale(1.05);
-}
-
-.searchResultsPoster:hover + .searchMovieDescription {
-    transform: scale(1.1);
-}
-
-.searchHeading {
-  color: white;
-  font-size: 1.5rem;
-}
-
-.castHeading {
-  padding: 20px 0;
-}
