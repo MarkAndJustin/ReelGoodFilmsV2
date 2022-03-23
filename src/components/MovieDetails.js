@@ -6,11 +6,8 @@ import { GoPlus } from 'react-icons/go';
 import VideoModal from '../UI/VideoModal';
 import movieTrailer from 'movie-trailer';
 import styles from './MovieDetails.module.css';
-import firebase from '../firebase';
-import {getDatabase, ref, push} from 'firebase/database';
 
-
-const MovieDetails = () => {
+const MovieDetails = (props) => {
   const {movieID} = useParams();
   const [movie, setMovie] = useState([]);
   const [cast, setCast] = useState([]);
@@ -52,51 +49,45 @@ const MovieDetails = () => {
     
   const { title, backdrop_path, overview, vote_average } = movie;  
 
-  const handleAddMovie = () => {
-    const database = getDatabase(firebase);
-    const dbRef = ref(database, 'favorite-movies/');
-    push(dbRef, movie);
-  }
-
-    return (
-        <>
-          <div className={styles.movie} style={{
-            backgroundSize: 'cover',
-            backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${backdrop_path}")`
-          }}>
-            <div className={styles.detailsWrapper}>
-              {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}
-                <div className={styles.movieDetails}>
-                  <h2 className={styles.movieTitle}>{title}</h2>  
-                  <h3 className={styles.movieRating}>Rating: {vote_average}</h3>
-                  <p className={styles.movieOverview}>{overview}</p>
-                </div>
-              <div>
-                <button className={styles.movieTrailerButton} onClick={handleShowModal}>
-                  <BsPlayFill />
-                  Watch Trailer
-                </button>
-                <button className={styles.addToListButton} onClick={handleAddMovie}>
-                  <GoPlus />
-                  Add to List
-                </button>
+  return (
+      <>
+        <div className={styles.movie} style={{
+          backgroundSize: 'cover',
+          backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${backdrop_path}")`
+        }}>
+          <div className={styles.detailsWrapper}>
+            {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}
+              <div className={styles.movieDetails}>
+                <h2 className={styles.movieTitle}>{title}</h2>  
+                <h3 className={styles.movieRating}>Rating: {vote_average}</h3>
+                <p className={styles.movieOverview}>{overview}</p>
               </div>
-              {cast.length > 0 ? <h3 className={styles.castHeading}>Starring:</h3> : <h3 className={styles.castHeading}>Cast Not Found</h3>}
-              <div className={styles.castList}>
-                {cast.map(actor => {
-                  return (
-                    <div key={actor.id}>
-                      <p>{actor.original_name}</p>
-                      <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.original_name} />
-                    </div>
-                    )
-                  })
-                }   
-              </div>
+            <div>
+              <button className={styles.movieTrailerButton} onClick={handleShowModal}>
+                <BsPlayFill />
+                Watch Trailer
+              </button>
+              <button className={styles.addToListButton} onClick={() => props.handleAddMovie(movie)}>
+                <GoPlus />
+                Add to List
+              </button>
             </div>
-        </div>
-      </>
-    )
+            {cast.length > 0 ? <h3 className={styles.castHeading}>Starring:</h3> : <h3 className={styles.castHeading}>Cast Not Found</h3>}
+            <div className={styles.castList}>
+              {cast.map(actor => {
+                return (
+                  <div key={actor.id}>
+                    <p>{actor.original_name}</p>
+                    <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.original_name} />
+                  </div>
+                  )
+                })
+              }   
+            </div>
+          </div>
+      </div>
+    </>
+  )
 
 }
 

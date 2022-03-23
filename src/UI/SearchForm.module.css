@@ -2,12 +2,19 @@
   color: white;
   font-size: 2rem;
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.searchIcon:hover, 
+.searchIcon:focus,
+.closeIcon:hover, 
+.closeIcon:focus {
+  color: goldenrod;
 }
 
 .searchForm {
   display: flex;
   align-items: center;
-  /* background-color: lightcoral; */
   flex-direction: row-reverse;
   width: 100%;
 }

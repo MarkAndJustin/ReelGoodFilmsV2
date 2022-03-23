@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import MyList from './components/MyList';
 //Utilities
 import firebase from './firebase';
-import {getDatabase, ref, onValue} from 'firebase/database';
+import {getDatabase, ref, onValue, remove, push} from 'firebase/database';
 
 
 function App() {
@@ -19,24 +19,40 @@ function App() {
   useEffect(() => {
     const database = getDatabase(firebase);
     const dbRef = ref(database, 'favorite-movies/');
+    //Response represents the list of data in DB
     onValue(dbRef, (response) => {
       const newState = [];
       const data = response.val();
+      //Key represents unique key of each obj in firebase
       for (let key in data) {
-        newState.push(data[key])
+        //Changes movie item to an obj with a key for each movie. 
+        newState.push({name: key, data: data[key]})
       }
       setFavMovies(newState)
     })
   }, []);
+
+  //The problem is that there needs to be a ref for the specific movie, right now removes everything
+  const handleDeleteMovie = (movie) => {
+    const database = getDatabase(firebase);
+    const dbRef = ref(database, `favorite-movies/${movie}`);
+    remove(dbRef)
+  }
+
+  const handleAddMovie = (movie) => {
+    const database = getDatabase(firebase);
+    const dbRef = ref(database, `favorite-movies/`);
+    push(dbRef, movie);
+  }
 
   return (
     <>
       <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/movie/:movieID' element={<MovieDetails />} />
+        <Route path='/movie/:movieID' element={<MovieDetails handleAddMovie={handleAddMovie}/>} />
         <Route path='/results' element={<SearchResults />} /> 
-        <Route path='/mylist' element={<MyList favMovies={favMovies}/>} />
+        <Route path='/mylist' element={<MyList favMovies={favMovies} handleDeleteMovie={handleDeleteMovie}/>} />
       </Routes>
       <Footer />
     </>

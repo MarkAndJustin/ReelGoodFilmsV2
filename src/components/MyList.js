@@ -2,35 +2,34 @@ import React from 'react';
 import styles from './MyList.module.css';
 import { Link } from "react-router-dom"
 import { BsTrash } from "react-icons/bs";
-import firebase from '../firebase';
-import {getDatabase, ref, remove} from 'firebase/database';
+
 
 const MyList = (props) => {
-
-  const handleDeleteMovie = (movie) => {
-    const database = getDatabase(firebase);
-    const dbRef = ref(database, 'favorite-movies/');
-    remove(dbRef, movie)
-  }
+  const {favMovies} = props
 
   return (
     <section className={styles.myList}>
         <div className={`wrapper ${styles.myListWrapper}`}>
-          <h2>My List:</h2>
+          {favMovies.length === 0 ? 
+            <h2>No Movies in List</h2> : <h2>My List:</h2>}
             <div className={styles.cardContainer}>
-              {props.favMovies.map(movie => {
+              {favMovies.map((movie, index) => {
                 return (
-                  <Link to={`/movie/${movie.id}`}>
-                    <div className={styles.card}>
-                      <h3>{movie.original_title}</h3>
-                      <BsTrash onClick={handleDeleteMovie}/>
-                      <img 
-                        className={styles.searchResultsPoster}
-                        src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                        alt={`A poster for ${movie.title}`} 
-                      />
+                  <div className={styles.card} key={index}>
+                    <div className={styles.cardDetails}>
+                      <h3>{movie.data.original_title}</h3>
+                      <BsTrash
+                        className={styles.trashIcon} 
+                        onClick={() => props.handleDeleteMovie(movie.name)}/>
                     </div>
-                  </Link>
+                    <Link to={`/movie/${movie.data.id}`}>
+                      <img 
+                        className={styles.cardPoster}
+                        src={`https://image.tmdb.org/t/p/w300${movie.data.poster_path}`}
+                        alt={`A poster for ${movie.data.title}`} 
+                      />
+                    </Link>
+                  </div>
                 )
               })}
             </div>
