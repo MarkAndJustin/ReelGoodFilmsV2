@@ -8,6 +8,8 @@ import MovieDetails from './components/MovieDetails';
 import SearchResults from './components/SearchResults';
 import Footer from './components/Footer';
 import MyList from './components/MyList';
+import SignIn from './components/SignIn';
+import AuthForm from './Auth/AuthForm';
 //Utilities
 import firebase from './firebase';
 import {getDatabase, ref, onValue, remove, push} from 'firebase/database';
@@ -49,6 +51,8 @@ function App() {
     <>
       <NavBar />
       <Routes>
+        <Route path='/auth' element={<AuthForm />} />
+        <Route path='/signin' element={<SignIn />} />
         <Route path='/' element={<Home />} />
         <Route path='/movie/:movieID' element={<MovieDetails handleAddMovie={handleAddMovie}/>} />
         <Route path='/results' element={<SearchResults />} /> 
