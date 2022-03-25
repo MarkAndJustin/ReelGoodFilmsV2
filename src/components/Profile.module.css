@@ -1,0 +1,21 @@
+.profile {
+    height: calc(100vh - 50px);
+    background-color: black;
+}
+
+.profileWrapper {
+    height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileCard {
+    background-color: white;
+    width: 50%;
+    height: 50vh;
+}
+
+.profileForm {
+    padding: 50px;
+}

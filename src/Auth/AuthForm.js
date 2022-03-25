@@ -1,11 +1,15 @@
-import {useState, useRef} from 'react';
-import styles from './AuthForm.module.css'
+import {useState, useRef, useContext} from 'react';
+import styles from './AuthForm.module.css';
+import AuthContext  from '../store/auth-context'
 
 const AuthForm = () => {
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true) ;
+    const authCtx = useContext(AuthContext)
+
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const switchAuthModeHandler = () => {
         setIsLoggedIn((prevState) => !prevState);
@@ -18,11 +22,14 @@ const AuthForm = () => {
         const enteredEmail = emailInputRef.current.value;
         const enteredPassword = passwordInputRef.current.value;
 
-        if(isLoggedIn) {
-
+        setIsLoading(true);
+        let url;
+        if(isLoggedIn) {   
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAXXxY-y1K8Y7eunVvk9DbCFLu9OJIvIwc'
         } else {
-            fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAXXxY-y1K8Y7eunVvk9DbCFLu9OJIvIwc',
-                {
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAXXxY-y1K8Y7eunVvk9DbCFLu9OJIvIwc';
+        }
+        fetch(url, {
                     method: 'POST',
                     body: JSON.stringify({
                     email: enteredEmail,
@@ -33,15 +40,24 @@ const AuthForm = () => {
                     'Content-Type': 'application/json'
                 }
             }).then(res => {
+                setIsLoading(false)
                 if (res.ok) {
-
+                    return res.json();
                 } else {
                     return res.json().then(data => {
-                        console.log(data)
+                        let errorMessage = 'Authentication failed';
+                        if (data && data.error && data.error.message) {
+                            errorMessage = data.error.message
+                        }
+                        throw new Error(errorMessage)
                     });
                 }
+            }).then(data => {
+                authCtx.login(data.idToken)
             })
-        }
+            .catch(err => {
+                alert(err.message)
+            })
     }
 
   return (
@@ -69,7 +85,8 @@ const AuthForm = () => {
                     />
                 </div>
                 <div>
-                    <button>{isLoggedIn ? 'Login' : 'Create ACcount'}</button>
+                    {!isLoading && <button>{isLoggedIn ? 'Login' : 'Create ACcount'}</button>}
+                    {isLoading && <p>Loading...</p>}
                     <button 
                         type='button'
                         className={styles.toggle}

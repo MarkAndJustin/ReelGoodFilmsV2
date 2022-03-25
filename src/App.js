@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import MyList from './components/MyList';
 import SignIn from './components/SignIn';
 import AuthForm from './Auth/AuthForm';
+import Profile from './components/Profile';
 //Utilities
 import firebase from './firebase';
 import {getDatabase, ref, onValue, remove, push} from 'firebase/database';
@@ -51,6 +52,7 @@ function App() {
     <>
       <NavBar />
       <Routes>
+        <Route path="/profile" element={<Profile />} />
         <Route path='/auth' element={<AuthForm />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/' element={<Home />} />
