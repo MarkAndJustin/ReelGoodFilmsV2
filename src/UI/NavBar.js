@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //CSS Modules
 import styles from "./NavBar.module.css";
 //Components
@@ -9,10 +9,16 @@ import AuthContext from '../store/auth-context'
 
 const NavBar = () => {
   const [fixNav, setFixNav] = useState(false);
+  const navigate = useNavigate();
 
   const authCtx = useContext(AuthContext);
 
   const isLoggedIn = authCtx.isLoggedIn;
+
+  const handleLogout = () => {
+    authCtx.logout();
+    navigate('/')
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -28,13 +34,13 @@ const NavBar = () => {
     <nav className={`navbar ${fixNav && styles.navbarBackground}`}>
       <div className={styles.navWrapper}>
         <div className={styles.navContainer}>
-          <Link to='/'>
+          <Link to='/home'>
           <h2 className={styles.logo}>Reel Good Films</h2>      
         </Link>
           <ul className={styles.navList}>
             {!isLoggedIn && (
               <li>
-                <Link to='/auth'>
+                <Link to='/'>
                   Login
                 </Link>
               </li>
@@ -44,6 +50,11 @@ const NavBar = () => {
                 <Link to='/profile'>
                   My Profile
                 </Link>
+              </li>
+            )}
+            {isLoggedIn && (
+              <li>
+                <button onClick={handleLogout}>Logout</button>
               </li>
             )}
             <li>

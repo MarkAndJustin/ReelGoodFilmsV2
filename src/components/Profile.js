@@ -2,10 +2,12 @@
 import {useRef, useContext} from 'react';
 import AuthContext from '../store/auth-context'
 import styles from './Profile.module.css'
+import {useNavigate} from 'react-router-dom';
 
 const Profile = () => {
+    const navigate = useNavigate();
     const newPasswordRef = useRef();
-    const authCtx = useContext(AuthContext)
+    const authCtx = useContext(AuthContext);
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -23,7 +25,7 @@ const Profile = () => {
                 'Content-type' : 'application/json'
             }
         }).then(res => {
-
+            navigate('/home')
         })
     }
 

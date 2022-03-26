@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 //Components
@@ -11,6 +11,7 @@ import MyList from './components/MyList';
 import SignIn from './components/SignIn';
 import AuthForm from './Auth/AuthForm';
 import Profile from './components/Profile';
+import AuthContext from './store/auth-context';
 //Utilities
 import firebase from './firebase';
 import {getDatabase, ref, onValue, remove, push} from 'firebase/database';
@@ -18,6 +19,7 @@ import {getDatabase, ref, onValue, remove, push} from 'firebase/database';
 
 function App() {
   const [favMovies, setFavMovies] = useState([]);
+  const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     const database = getDatabase(firebase);
@@ -53,9 +55,9 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/profile" element={<Profile />} />
-        <Route path='/auth' element={<AuthForm />} />
+        {!authCtx.isLoggedIn && <Route path='/' element={<AuthForm />} />}
         <Route path='/signin' element={<SignIn />} />
-        <Route path='/' element={<Home />} />
+        {authCtx.isLoggedIn && <Route path='/home' element={<Home />} />}
         <Route path='/movie/:movieID' element={<MovieDetails handleAddMovie={handleAddMovie}/>} />
         <Route path='/results' element={<SearchResults />} /> 
         <Route path='/mylist' element={<MyList favMovies={favMovies} handleDeleteMovie={handleDeleteMovie}/>} />
