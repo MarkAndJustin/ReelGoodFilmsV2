@@ -55,7 +55,7 @@ const AuthForm = () => {
                     });
                 }
             }).then(data => {
-                authCtx.login(data.idToken);
+                authCtx.login(data.idToken, Date.now() + data.expiresIn * 1000);
                 navigate('/home')
             })
             .catch(err => {
@@ -90,11 +90,7 @@ const AuthForm = () => {
                 <div>
                     {!isLoading && <button>{isLoggedIn ? 'Login' : 'Create ACcount'}</button>}
                     {isLoading && <p>Loading...</p>}
-                    <button 
-                        type='button'
-                        className={styles.toggle}
-                        onClick={switchAuthModeHandler}
-                    >
+                    <button type='button' className={styles.toggle} onClick={switchAuthModeHandler}>
                         {isLoggedIn ? 'Create new Account' : 'Login with existing account'}
                     </button>
                 </div>

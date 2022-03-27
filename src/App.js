@@ -8,7 +8,6 @@ import MovieDetails from './components/MovieDetails';
 import SearchResults from './components/SearchResults';
 import Footer from './components/Footer';
 import MyList from './components/MyList';
-import SignIn from './components/SignIn';
 import AuthForm from './Auth/AuthForm';
 import Profile from './components/Profile';
 import AuthContext from './store/auth-context';
@@ -56,7 +55,6 @@ function App() {
       <Routes>
         <Route path="/profile" element={<Profile />} />
         {!authCtx.isLoggedIn && <Route path='/' element={<AuthForm />} />}
-        <Route path='/signin' element={<SignIn />} />
         {authCtx.isLoggedIn && <Route path='/home' element={<Home />} />}
         <Route path='/movie/:movieID' element={<MovieDetails handleAddMovie={handleAddMovie}/>} />
         <Route path='/results' element={<SearchResults />} /> 

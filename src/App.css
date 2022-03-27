@@ -54,13 +54,5 @@ li {
   margin: 0 auto;
 }
 
-.closeButton {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 2rem;
-  cursor: pointer;
-}
 
 

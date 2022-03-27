@@ -98,7 +98,7 @@ const Home = () => {
     <>
       {movies.length > 0 && <header style={{
         backgroundSize: 'cover',
-        backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${movies[index].backdrop_path}")`,    
+        backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${movies[index].backdrop_path}")`  
       }}>
         <div className={styles.homeWrapper}>
           {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}

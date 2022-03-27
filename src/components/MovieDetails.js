@@ -88,7 +88,6 @@ const MovieDetails = (props) => {
       </div>
     </>
   )
-
 }
 
 export default MovieDetails
