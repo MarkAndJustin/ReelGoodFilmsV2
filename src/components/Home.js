@@ -31,7 +31,7 @@ const Home = () => {
 
   const handleAddToList = (event, movie) => {
     event.preventDefault();
-    const database = getDatabase(firebase);
+    const database = getDatabase();
     const dbRef = ref(database);
     setAddToList(movie)
     push(dbRef, addToList)

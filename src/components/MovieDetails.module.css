@@ -1,6 +1,7 @@
 .movie {
   width: 100%;
   min-height: calc(100vh - 50px);
+  padding-top: 100px;
 }
 
 .detailsWrapper {
@@ -30,7 +31,6 @@
   padding: 40px 0;
   font-size: 1rem;
   line-height: 40px;
-  /* width: 50%; */
 }
 
 .movieTrailerButton {
@@ -83,14 +83,4 @@
   margin-right: 30px;
 }
 
-.alreadyAdded {
-  background-color: white;
-  border: none;
-  outline: 1px solid goldenrod;
-  color: goldenrod;
-  padding: 15px 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease-in-out;
-}
 

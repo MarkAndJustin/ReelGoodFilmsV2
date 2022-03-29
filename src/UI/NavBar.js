@@ -1,24 +1,23 @@
-import { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 //CSS Modules
 import styles from "./NavBar.module.css";
 //Components
 import SearchForm from "./SearchForm";
 
-import AuthContext from '../store/auth-context'
 
 const NavBar = () => {
   const [fixNav, setFixNav] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const authCtx = useContext(AuthContext);
+  // const authCtx = useContext(AuthContext);
 
-  const isLoggedIn = authCtx.isLoggedIn;
+  // const isLoggedIn = authCtx.isLoggedIn;
 
-  const handleLogout = () => {
-    authCtx.logout();
-    navigate('/')
-  }
+  // const handleLogout = () => {
+  //   authCtx.logout();
+  //   navigate('/')
+  // }
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -37,7 +36,7 @@ const NavBar = () => {
           <Link to='/home'>
           <h2 className={styles.logo}>Reel Good Films</h2>      
         </Link>
-          <ul className={styles.navList}>
+          {/* <ul className={styles.navList}>
             {!isLoggedIn && (
               <li>
                 <Link to='/'>
@@ -62,7 +61,7 @@ const NavBar = () => {
                 My List
               </Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
           <SearchForm />          
       </div>

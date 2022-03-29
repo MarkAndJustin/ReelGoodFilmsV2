@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -15,6 +16,8 @@ const firebaseConfig = {
 
   authDomain: "reelgoodfilms-5924d.firebaseapp.com",
 
+  databaseURL: "https://reelgoodfilms-5924d-default-rtdb.firebaseio.com",
+
   projectId: "reelgoodfilms-5924d",
 
   storageBucket: "reelgoodfilms-5924d.appspot.com",
@@ -25,8 +28,8 @@ const firebaseConfig = {
 
 };
 
-
 // Initialize Firebase
 
 const app = initializeApp(firebaseConfig);
-export default app
+export const auth = getAuth(app);
+
