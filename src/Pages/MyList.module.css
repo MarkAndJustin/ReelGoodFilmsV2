@@ -18,6 +18,10 @@
     position: relative;
 }
 
+.movieTitle {
+    color: white;
+}
+
 .cardDetails {
     display: flex;
     align-items: center;

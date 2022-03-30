@@ -1,0 +1,23 @@
+.updateProfile {
+    background-color: black;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: white;
+    padding: 50px;
+    width: 50%;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.formInput {
+    padding: 10px 0 10px 10px; 
+}

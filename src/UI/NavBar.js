@@ -4,20 +4,12 @@ import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 //Components
 import SearchForm from "./SearchForm";
+import { useAuth } from "../store/AuthContext";
 
 
 const NavBar = () => {
   const [fixNav, setFixNav] = useState(false);
-  // const navigate = useNavigate();
-
-  // const authCtx = useContext(AuthContext);
-
-  // const isLoggedIn = authCtx.isLoggedIn;
-
-  // const handleLogout = () => {
-  //   authCtx.logout();
-  //   navigate('/')
-  // }
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -34,34 +26,25 @@ const NavBar = () => {
       <div className={styles.navWrapper}>
         <div className={styles.navContainer}>
           <Link to='/home'>
-          <h2 className={styles.logo}>Reel Good Films</h2>      
-        </Link>
-          {/* <ul className={styles.navList}>
-            {!isLoggedIn && (
-              <li>
-                <Link to='/'>
-                  Login
-                </Link>
-              </li>
-            )}
-            {isLoggedIn && (
-              <li>
-                <Link to='/profile'>
-                  My Profile
-                </Link>
-              </li>
-            )}
-            {isLoggedIn && (
-              <li>
-                <button onClick={handleLogout}>Logout</button>
-              </li>
-            )}
-            <li>
-              <Link to='/mylist'>
+            <h2 className={styles.logo}>Reel Good Films</h2>      
+          </Link>
+          <ul className={styles.navList}>
+            {!isLoggedIn && <li className={styles.navItem}>
+              <Link className={styles.navLink} to='/login'>
+                Login              
+              </Link>
+            </li>}
+            <li className={styles.navItem}>
+              <Link className={styles.navLink} to='/'>
+                Profile              
+              </Link>
+            </li>
+            <li className={styles.navItem}>
+              <Link className={styles.navLink} to='/mylist'>
                 My List
               </Link>
             </li>
-          </ul> */}
+          </ul>
         </div>
           <SearchForm />          
       </div>

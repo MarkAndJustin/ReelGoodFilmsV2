@@ -15,16 +15,19 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const signUp = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
+        setIsLoggedIn(true)
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logout = () => {
+        setIsLoggedIn(false)
         return signOut(auth)
     }
 
@@ -51,7 +54,8 @@ export const AuthProvider = ({ children }) => {
 
 
     const value = {
-        currentUser,  
+        currentUser,
+        isLoggedIn,  
         signUp,
         login,
         logout,

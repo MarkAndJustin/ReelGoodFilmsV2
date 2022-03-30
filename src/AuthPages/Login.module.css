@@ -1,0 +1,38 @@
+.login {
+    background-color: black;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginButton {
+    background-color: goldenrod;
+    color: white;
+    padding: 10px 50px;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.loginButton:hover, 
+.loginButton:focus {
+    background-color: white;
+    color: goldenrod;
+    outline: 1px solid goldenrod;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 50px;
+}
+
+.signInLink {
+    color: black;
+}

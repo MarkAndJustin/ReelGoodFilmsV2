@@ -3,21 +3,24 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 //Components
 import NavBar from './UI/NavBar';
-import Home from './components/Home';
-import MovieDetails from './components/MovieDetails';
-import SearchResults from './components/SearchResults';
-import MyList from './components/MyList';
 import Footer from './components/Footer';
-import Signup from './components/Signup';
-import Profile from './components/Dashboard';
-import ForgotPassword from './components/ForgotPassword';
 import { PrivateRoute } from './components/PrivateRoute';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import UpdateProfile from './components/UpdateProfile';
-import { AuthProvider } from './store/AuthContext';
+//Pages
+import Home from './Pages/Home';
+import MovieDetails from './Pages/MovieDetails';
+import SearchResults from './Pages/SearchResults';
+import MyList from './Pages/MyList';
+//Auth Pages
+import Signup from './AuthPages/Signup';
+import Profile from './AuthPages/Dashboard';
+import ForgotPassword from './AuthPages/ForgotPassword';
+import Login from './AuthPages/Login';
+import Dashboard from './AuthPages/Dashboard';
+import UpdateProfile from './AuthPages/UpdateProfile';
 //Utilities
 import {getDatabase, ref, onValue, remove, push} from 'firebase/database';
+import { AuthProvider } from './store/AuthContext';
+
 
 
 function App() {
@@ -53,7 +56,6 @@ function App() {
   }
 
   return (
-    <div className='app'>
     <AuthProvider>
       <NavBar />
       <Routes>
@@ -76,7 +78,6 @@ function App() {
       </Routes>
       <Footer />
     </AuthProvider>
-    </div>
   );
 }
 

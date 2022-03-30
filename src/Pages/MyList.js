@@ -17,7 +17,7 @@ const MyList = (props) => {
                 return (
                   <div className={styles.card} key={index}>
                     <div className={styles.cardDetails}>
-                      <h3>{movie.data.original_title}</h3>
+                      <h3 className={styles.movieTitle}>{movie.data.original_title}</h3>
                       <BsTrash
                         className={styles.trashIcon} 
                         onClick={() => props.handleDeleteMovie(movie.name)}/>

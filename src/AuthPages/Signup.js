@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useAuth } from '../store/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import styles from './Signup.module.css'
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Signup = () => {
             setError('')
             setLoading(true)
             await signUp(emailRef.current.value, passwordRef.current.value)
-            navigate('/')
+            navigate('/home')
         } catch {
             setError('Failed to create an account')
         }
@@ -31,28 +32,30 @@ const Signup = () => {
     }
 
   return (
-    <div className='card'>
+    <section className={styles.signUp}>
+        <div className={styles.card}>
         <form onSubmit={handleSubmit}>
             <h2>Sign Up</h2>
             {error && alert(error)}
-            <div className="form-group">
+            <div className={styles.formGroup}>
                 <label htmlFor="emailInput">Your Email</label>
                 <input type="email" id="emailInput" placeholder='Email Here' ref={emailRef}/>
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
                 <label htmlFor="passwordInput">Your Password</label>
                 <input type="password" id="passwordInput" placeholder='password Here' ref={passwordRef}/>
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
                 <label htmlFor="passwordComfirmInput">Confirm your Password</label>
                 <input type="password" id="passwordConfirmInput" placeholder='retype password Here' ref={passwordConfirmRef}/>
             </div>
-            <button disabled={loading} type='submit'>Submit</button>
+            <button className={styles.signUpButton} disabled={loading} type='submit'>Submit</button>
         </form>
         <div className="signinLink">
             Already have an account? <Link to='/login'>Sign in.</Link>
         </div>
     </div>
+    </section>
   )
 }
 

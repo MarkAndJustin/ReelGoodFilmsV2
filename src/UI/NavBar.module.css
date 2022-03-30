@@ -32,10 +32,26 @@ nav {
 
 .navList {
   display: flex;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 5px;
+  color: white;
+  align-items: center;
 }
 
-.navList li {
-  margin-right: 10px;
+.navList li:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+.navLink {
+  color: white;
+  transition: color 0.2s ease-in-out
+}
+
+.navLink:visited {
+  color: white;
+}
+
+.navLink:hover, 
+.navLink:focus {
+  color: goldenrod;
 }

@@ -1,0 +1,38 @@
+.dashboard {
+    background-color: black;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboardContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboardButton {
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    padding: 10px 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.dashboardButton:hover, 
+.dashboardButton:focus {
+    background-color: white;
+    color: goldenrod;
+    outline: 2px solid goldenrod;
+}
+
+.card {
+    width: 50%;
+    background-color: white;
+    padding: 100px;
+}
+
+h3 {
+    color: black;
+}

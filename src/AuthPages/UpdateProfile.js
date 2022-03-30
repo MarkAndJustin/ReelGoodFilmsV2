@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useAuth } from '../store/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import styles from './UpdateProfile.module.css'
 
 const UpdateProfile = () => {
     const navigate = useNavigate();
@@ -40,13 +41,15 @@ const UpdateProfile = () => {
     }
 
   return (
-    <div className='card'>
-        <form onSubmit={handleSubmit}>
+    <section className={styles.updateProfile}>
+        <div className={styles.card}>
+             <form onSubmit={handleSubmit}>
             <h2>Update Profile</h2>
             {error && alert(error)}
-            <div className="form-group">
+            <div className={styles.formGroup}>
                 <label htmlFor="emailInput">Your Email</label>
-                <input 
+                <input
+                    className={styles.formInput} 
                     type="email" 
                     id="emailInput" 
                     placeholder='Email Here' 
@@ -54,18 +57,20 @@ const UpdateProfile = () => {
                     defaultValue={currentUser.email}
                     />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
                 <label htmlFor="passwordInput">Your Password</label>
-                <input 
+                <input
+                    className={styles.formInput} 
                     type="password" 
                     id="passwordInput" 
                     placeholder='Leave blank to keep the same' 
                     ref={passwordRef}
                     />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
                 <label htmlFor="passwordComfirmInput">Confirm your Password</label>
                 <input 
+                    className={styles.formInput}
                     type="password" 
                     id="passwordConfirmInput" 
                     placeholder='Leave blank to keep the same' 
@@ -77,7 +82,8 @@ const UpdateProfile = () => {
         <div className="signinLink">
             Already have an account? <Link to='/'>Cancel</Link>
         </div>
-    </div>
+        </div>
+    </section>
   )
 }
 

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useAuth } from '../store/AuthContext';
 import { Link } from 'react-router-dom';
+import styles from './ForgotPassword.module.css'
 
 const ForgotPassword = () => {
     const emailRef = useRef();
@@ -17,7 +18,7 @@ const ForgotPassword = () => {
             setError('')
             setLoading(true)
             await resetPassword(emailRef.current.value);
-            setMessage('Ckeck your inbox')
+            setMessage('Password reset instructions sent, please check your inbox.')
         } catch {
             setError('Failed to reset password')
         }
@@ -26,17 +27,23 @@ const ForgotPassword = () => {
     }
 
   return (
-    <div className='card'>
-        <form onSubmit={handleSubmit}>
-            <h2>PAssword Reset</h2>
-            {error && alert(error)}
-            {message && <p>{message}</p>}
-            <div className="form-group">
-                <label htmlFor="emailInput">Your Email</label>
-                <input type="email" id="emailInput" placeholder='Email Here' ref={emailRef}/>
-            </div>
-            <button disabled={loading} type='submit'>Reset Password</button>
-        </form>
+    <section className={styles.forgotPassword}>
+        <div className={styles.card}>
+            <form onSubmit={handleSubmit}>
+                <h2>Password Reset</h2>
+                {error && alert(error)}
+                {message && <p className={styles.resetMessage}>{message}</p>}
+                <div className={styles.formGroup}>
+                    <label htmlFor="emailInput">Your Email:</label>
+                    <input 
+                        className={styles.formInput}
+                        type="email" 
+                        id="emailInput" 
+                        placeholder='Email Here' 
+                        ref={emailRef} />
+                </div>
+                <button className={styles.formButton} disabled={loading} type='submit'>Reset Password</button>
+            </form>
         <div className="forgotPassLink">
             <Link to='/login'>Login</Link>
         </div>
@@ -45,7 +52,8 @@ const ForgotPassword = () => {
                 Sign Up.
            </Link>
         </div>
-    </div>
+        </div>
+    </section>
   )
 }
 

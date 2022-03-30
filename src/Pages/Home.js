@@ -4,7 +4,7 @@ import { BsPlayFill } from 'react-icons/bs';
 import { GoPlus } from 'react-icons/go';
 import styles from './Home.module.css';
 
-import Movies from './Movies';
+import Movies from '../components/Movies';
 import VideoModal from '../UI/VideoModal';
 import movieTrailer from 'movie-trailer';
 import firebase from '../firebase';
