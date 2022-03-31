@@ -8,6 +8,11 @@
   min-height: calc(100vh - 50px);
 }
 
+.movieTitle {
+  color: white;
+  font-size: 3rem;
+}
+
 .movieDescription {
   margin-bottom: 100px;
   width: 50%;
@@ -50,6 +55,10 @@
   transition: all 0.3s ease-in-out;
 }
 
+.buttonContainer {
+  display: flex;
+}
+
 .addToListButton:hover, 
 .addToListButton:focus {
   background-color: white;
@@ -64,5 +73,11 @@
 
   .movieDescription {
     width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .movieTitle {
+    font-size: 2rem;
   }
 }

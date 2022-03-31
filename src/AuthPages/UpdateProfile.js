@@ -77,10 +77,10 @@ const UpdateProfile = () => {
                     ref={passwordConfirmRef}
                 />
             </div>
-            <button disabled={loading} type='submit'>Update</button>
+            <button className={styles.updateButton} disabled={loading} type='submit'>Update</button>
         </form>
-        <div className="signinLink">
-            Already have an account? <Link to='/'>Cancel</Link>
+        <div className={styles.linkToLoginContainer}>
+            Already have an account? <Link className={styles.linkToLogin} to='/'>Cancel</Link>
         </div>
         </div>
     </section>

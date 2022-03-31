@@ -24,9 +24,9 @@ const Dashboard = () => {
             <div className={styles.dashboardContainer}>
                 <h3>Profile</h3>
                 {error && <p>{error}</p>}
-                <strong>Signed in as: </strong> {currentUser.email}
-                <Link to='/update-profile'>
-                    Update Profile
+                <p className={styles.dashboardUser}>Signed in as: {currentUser.email}</p>
+                <Link className={styles.dashboardLink} to='/update-profile'>
+                    Click To Update Profile
                 </Link>
                 <button className={styles.dashboardButton} onClick={handleLogout}>Logout</button>
             </div>

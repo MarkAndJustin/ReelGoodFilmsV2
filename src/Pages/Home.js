@@ -99,9 +99,9 @@ const Home = () => {
         <div className={styles.homeWrapper}>
           {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}
           <div className={styles.movieDescription}>
-            <h1>{movies[index].title}</h1>
+            <h2 className={styles.movieTitle}>{movies[index].title}</h2>
             <p className={styles.movieOverview}>{movies[index].overview}</p>
-            <div>
+            <div className={styles.buttonContainer}>
               <button className={styles.movieTrailerButton} onClick={handleShowModal}>
                 <BsPlayFill />
                 Watch Trailer

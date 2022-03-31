@@ -57,7 +57,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-          {isLoggedIn && <SearchForm />}
+          {isLoggedIn && <SearchForm className={styles.searchForm} />}
           {isNavOpen ? <IoClose onClick={handleMobileNavClose} className={styles.close}/> : 
             <FaBars onClick={handleMobileNav} className={styles.hamburger}/>}
       </div>
@@ -77,6 +77,9 @@ const NavBar = () => {
               <Link className={styles.navLink} to='/mylist'>
                 My List
               </Link>
+            </li>
+            <li>
+              <SearchForm className={styles.sfmobile}/>
             </li>
           </ul>}
     </nav>

@@ -9,6 +9,7 @@
 .card {
     background-color: white;
     padding: 50px;
+    width: 50%;
 }
 
 .formGroup {
@@ -20,8 +21,34 @@
 .signUpButton {
     background-color: goldenrod;
     color: white;
-    padding: 10px 50px;
+    padding: 15px 0;
     border: none;
     transition: background-color 0.3s ease-in-out;
     margin-top: 20px;
+    width: 100%;
+}
+
+.signUpButton:hover,
+.signUpButton:focus {
+    background-color: white;
+    outline: 2px solid goldenrod;
+    color: goldenrod;
+}
+
+.formInput {
+    padding: 10px 0 10px 10px;
+}
+
+.signInLinkContainer {
+    margin-top: 20px;
+}
+
+.signInLink {
+    color: black;
+    transition: color 0.2s ease-in-out;
+}
+
+.signInLink:hover, 
+.signInLink:focus {
+    color: goldenrod;
 }

@@ -10,10 +10,14 @@ const VideoModal = (props) => {
 
   return (
     <div className={styles.videoModal}>
-        <div className={styles.modalControls}>
-            <IoClose className="closeButton" onClick={props.onShowModal}/>
+      <div className={styles.videoModalWrapper}>
+         <div className={styles.modalControls}>
+            <IoClose className={styles.close} onClick={props.onShowModal}/>
         </div>
-        <YouTube className={styles.youtube} videoId={props.videoSrc} opts={options} />
+        <div className={styles.youtubeContainer}>
+          <YouTube className={styles.youtube} videoId={props.videoSrc} opts={options} />
+        </div>
+      </div>
     </div>
   )
 }

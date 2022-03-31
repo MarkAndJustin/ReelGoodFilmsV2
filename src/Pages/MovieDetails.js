@@ -53,7 +53,8 @@ const MovieDetails = (props) => {
       <>
         <div className={styles.movie} style={{
           backgroundSize: 'cover',
-          backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${backdrop_path}")`
+          backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), 
+          url("https://image.tmdb.org/t/p/w1280${backdrop_path}")`
         }}>
           <div className={styles.detailsWrapper}>
             {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}

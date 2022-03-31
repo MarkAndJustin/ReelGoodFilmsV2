@@ -71,6 +71,7 @@
 
 .castHeading {
   padding: 20px 0;
+  color: white;
 }
 
 .castList {
@@ -81,6 +82,12 @@
 
 .castList img {
   margin-right: 30px;
+}
+
+@media (max-width: 1000px) {
+  .movie {
+    background-position: center;
+  }
 }
 
 

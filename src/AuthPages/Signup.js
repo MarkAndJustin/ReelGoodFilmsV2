@@ -39,20 +39,35 @@ const Signup = () => {
             {error && alert(error)}
             <div className={styles.formGroup}>
                 <label htmlFor="emailInput">Your Email</label>
-                <input type="email" id="emailInput" placeholder='Email Here' ref={emailRef}/>
+                <input
+                    className={styles.formInput} 
+                    type="email" 
+                    id="emailInput" 
+                    placeholder='Email Here' 
+                    ref={emailRef}/>
             </div>
             <div className={styles.formGroup}>
                 <label htmlFor="passwordInput">Your Password</label>
-                <input type="password" id="passwordInput" placeholder='password Here' ref={passwordRef}/>
+                <input
+                    className={styles.formInput} 
+                    type="password" 
+                    id="passwordInput" 
+                    placeholder='password Here' 
+                    ref={passwordRef}/>
             </div>
             <div className={styles.formGroup}>
                 <label htmlFor="passwordComfirmInput">Confirm your Password</label>
-                <input type="password" id="passwordConfirmInput" placeholder='retype password Here' ref={passwordConfirmRef}/>
+                <input
+                    className={styles.formInput} 
+                    type="password" 
+                    id="passwordConfirmInput" 
+                    placeholder='retype password Here' 
+                    ref={passwordConfirmRef}/>
             </div>
             <button className={styles.signUpButton} disabled={loading} type='submit'>Submit</button>
         </form>
-        <div className="signinLink">
-            Already have an account? <Link to='/login'>Sign in.</Link>
+        <div className={styles.signInLinkContainer}>
+            Already have an account? <Link className={styles.signInLink} to='/login'>Sign in.</Link>
         </div>
     </div>
     </section>

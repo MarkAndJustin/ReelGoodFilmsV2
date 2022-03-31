@@ -21,3 +21,26 @@
 .formInput {
     padding: 10px 0 10px 10px; 
 }
+
+.updateButton {
+    width: 100%;
+    border: none;
+    background-color: goldenrod;
+    padding: 10px 0;
+    color: white;
+    margin-top: 20px;
+}
+
+.linkToLoginContainer {
+    margin-top: 20px;
+}
+
+.linkToLogin {
+    color: black;
+    transition: color 0.2s ease-in-out;
+}
+
+.linkToLogin:hover, 
+.linkToLogin:focus {
+    color: goldenrod;
+}

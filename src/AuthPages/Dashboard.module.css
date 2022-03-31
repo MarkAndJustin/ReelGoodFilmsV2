@@ -2,7 +2,6 @@
     background-color: black;
     min-height: calc(100vh - 50px);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -12,11 +11,27 @@
     flex-direction: column;
 }
 
+.dashboardUser {
+    margin-top: 20px;
+}
+
+.dashboardLink {
+    margin-top: 20px;
+    color: black;
+    transition:  color 0.2s ease-in-out;
+}
+
+.dashboardLink:hover, 
+.dashboardLink:focus {
+    color: goldenrod;
+}
+
 .dashboardButton {
     background-color: goldenrod;
     color: white;
     border: none;
     padding: 10px 0;
+    margin-top: 20px;
     transition: background-color 0.3s ease-in-out;
 }
 
