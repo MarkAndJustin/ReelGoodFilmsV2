@@ -7,7 +7,6 @@ import styles from './Home.module.css';
 import Movies from '../components/Movies';
 import VideoModal from '../UI/VideoModal';
 import movieTrailer from 'movie-trailer';
-import firebase from '../firebase';
 import {getDatabase, ref, push} from 'firebase/database';
 
 
@@ -20,21 +19,12 @@ const Home = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
   const [index, setIndex] = useState(0);
-  const [addToList, setAddToList] = useState([])
   const timeoutRef = useRef(null);
 
   const resetTimeout = () => {
     if(timeoutRef.current) {
       clearTimeout(timeoutRef.current)
     }
-  }
-
-  const handleAddToList = (event, movie) => {
-    event.preventDefault();
-    const database = getDatabase();
-    const dbRef = ref(database);
-    setAddToList(movie)
-    push(dbRef, addToList)
   }
 
   //useEffect for movie slideshow. 
@@ -93,12 +83,18 @@ const Home = () => {
     }))
   }, []);
 
+  const handleAddMovie = () => {
+    const database = getDatabase();
+    const dbRef = ref(database, `favorite-movies/`);
+    push(dbRef, movies[index]);
+  }
 
   return (
     <>
-      {movies.length > 0 && <header style={{
+      {movies.length > 0 && <header className={styles.header} style={{
         backgroundSize: 'cover',
-        backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), url("https://image.tmdb.org/t/p/w1280${movies[index].backdrop_path}")`  
+        backgroundImage: `linear-gradient(90deg,rgba(0,0,0,.966) 35%,transparent), 
+        url("https://image.tmdb.org/t/p/w1280${movies[index].backdrop_path}")`  
       }}>
         <div className={styles.homeWrapper}>
           {isModalOpened && <VideoModal onShowModal={handleCloseModal} videoSrc={trailerUrl} />}
@@ -110,7 +106,7 @@ const Home = () => {
                 <BsPlayFill />
                 Watch Trailer
               </button>
-              <button className={styles.addToListButton} onClick={handleAddToList}>
+              <button className={styles.addToListButton} onClick={handleAddMovie}>
                 <GoPlus />
                 Add to List
               </button>

@@ -6,13 +6,22 @@
     justify-content: center;
 }
 
+.heading {
+    text-align: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
 .loginButton {
     background-color: goldenrod;
     color: white;
-    padding: 10px 50px;
+    padding: 10px 0;
     border: none;
     transition: background-color 0.3s ease-in-out;
     margin-top: 20px;
+    width: 100%;
 }
 
 .loginButton:hover, 
@@ -31,8 +40,42 @@
 .card {
     background-color: white;
     padding: 50px;
+    width: 50%
 }
 
 .signInLink {
     color: black;
+}
+
+.formInput {
+    padding: 10px 0 10px 10px;
+}
+
+.linkContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.link {
+    color: black;
+    transition: color 0.2s ease-in-out;
+}
+
+.link:hover, 
+.link:focus {
+    color: goldenrod;
+}
+
+@media (max-width: 1000px) {
+    .card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .linkContainer {
+        flex-direction: column;
+        text-align: center;
+    }
 }

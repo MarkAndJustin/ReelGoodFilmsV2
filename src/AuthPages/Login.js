@@ -22,37 +22,46 @@ const Login = () => {
         } catch {
             setError('Failed to sign in')
         }
-
-        setLoading(false)
     }
 
   return (
     <section className={styles.login}>
-        <div className={styles.loginWrapper}>
             <div className={styles.card}>
                 <form onSubmit={handleSubmit}>
-                    <h2>Login</h2>
+                    <h2 className={styles.heading}>Login</h2>
                     {error && alert(error)}
                     <div className={styles.formGroup}>
                         <label htmlFor="emailInput">Your Email</label>
-                        <input type="email" id="emailInput" placeholder='Email Here' ref={emailRef}/>
+                        <input
+                            className={styles.formInput} 
+                            type="email" 
+                            id="emailInput" 
+                            placeholder='Email Here' 
+                            ref={emailRef}/>
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="passwordInput">Your Password</label>
-                        <input type="password" id="passwordInput" placeholder='password Here' ref={passwordRef}/>
+                        <input 
+                            className={styles.formInput}
+                            type="password" 
+                            id="passwordInput" 
+                            placeholder='password Here' 
+                            ref={passwordRef}/>
                     </div>
-                    <button className={styles.loginButton} disabled={loading} type='submit'>Login</button>
+                    <button 
+                        className={styles.loginButton} 
+                        disabled={loading} 
+                        type='submit'>Login</button>
                 </form>
-            <div className="forgotPassLink">
-                Forgot password? <Link to='/forgot-password'>Update Password</Link>
-            </div>
-            <div>
-                Need an account? <Link to='/signup'>
-                    Sign Up.
+            <div className={styles.linkContainer}>
+                <Link to='/forgot-password' className={styles.link}>
+                    Forgot Password?
+                </Link>
+                <Link to='/signup' className={styles.link}>
+                    Need An Account?
                 </Link>
             </div>
         </div>
-    </div>
     </section>
   )
 }

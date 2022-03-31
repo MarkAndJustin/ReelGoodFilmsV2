@@ -55,3 +55,29 @@ nav {
 .navLink:focus {
   color: goldenrod;
 }
+
+.hamburger {
+  display: none;
+}
+
+.hamburger, .close {
+  font-size: 2rem;
+  color: white;
+  margin-top: 10px;
+}
+
+.navListMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navItemMobile {
+  padding: 10px 0;
+}
+
+@media (max-width: 1000px) {
+  .navList {
+    display: none;
+  }
+}

@@ -56,3 +56,13 @@
   color: goldenrod;
   outline: 1px solid goldenrod;
 }
+
+@media (max-width: 1000px) {
+  .header {
+    background-position: center;
+  }
+
+  .movieDescription {
+    width: 100%;
+  }
+}

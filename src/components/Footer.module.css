@@ -1,0 +1,9 @@
+.footerLink {
+    color: white;
+    transition: color 0.2s ease-in-out;
+}
+
+.footerLink:hover, 
+.footerLink:focus {
+    color: goldenrod;
+}
