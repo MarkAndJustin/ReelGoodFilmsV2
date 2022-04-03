@@ -52,3 +52,17 @@
 .trashIcon:focus {
     color: goldenrod;
 }
+
+@media (max-width: 1000px) {
+    .myListHeading {
+        font-size: 1.5rem;
+    }
+
+    .cardContainer {
+        justify-content: center;
+    }
+
+    .card {
+        margin: 50px 0 50px 25px;
+    }
+}

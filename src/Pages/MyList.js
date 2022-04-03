@@ -11,7 +11,7 @@ const MyList = (props) => {
     <section className={styles.myList}>
         <div className={`wrapper ${styles.myListWrapper}`}>
           {favMovies.length === 0 ? 
-            <h2>No Movies in List</h2> : <h2>My List:</h2>}
+            <h2 className={styles.myListHeading}>No Movies in List</h2> : <h2 className={styles.myListHeading}>My List:</h2>}
             <div className={styles.cardContainer}>
               {favMovies.map((movie, index) => {
                 return (

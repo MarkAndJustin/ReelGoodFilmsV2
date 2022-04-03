@@ -80,7 +80,7 @@ const UpdateProfile = () => {
             <button className={styles.updateButton} disabled={loading} type='submit'>Update</button>
         </form>
         <div className={styles.linkToLoginContainer}>
-            Already have an account? <Link className={styles.linkToLogin} to='/'>Cancel</Link>
+            Already have an account? <Link className={styles.linkToLogin} to='/home'>Cancel</Link>
         </div>
         </div>
     </section>

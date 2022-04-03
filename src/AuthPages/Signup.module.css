@@ -1,6 +1,6 @@
 .signUp {
     background-color: black;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 49px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,4 +51,11 @@
 .signInLink:hover, 
 .signInLink:focus {
     color: goldenrod;
+}
+
+@media (max-width: 1000px) {
+    .card {
+        width: 90%;
+        padding: 30px;
+    }
 }

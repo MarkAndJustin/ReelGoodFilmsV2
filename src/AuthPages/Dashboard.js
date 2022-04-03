@@ -20,15 +20,17 @@ const Dashboard = () => {
 
   return (
     <section className={styles.dashboard}>
-        <div className={styles.card}>
-            <div className={styles.dashboardContainer}>
-                <h3>Profile</h3>
-                {error && <p>{error}</p>}
-                <p className={styles.dashboardUser}>Signed in as: {currentUser.email}</p>
-                <Link className={styles.dashboardLink} to='/update-profile'>
-                    Click To Update Profile
-                </Link>
-                <button className={styles.dashboardButton} onClick={handleLogout}>Logout</button>
+        <div className={styles.dashboardWrapper}>
+            <div className={styles.card}>
+                <div className={styles.dashboardContainer}>
+                    <h3>Profile</h3>
+                    {error && <p>{error}</p>}
+                    <p className={styles.dashboardUser}>Signed in as: {currentUser.email}</p>
+                    <Link className={styles.dashboardLink} to='/update-profile'>
+                        Click To Update Profile
+                    </Link>
+                    <button className={styles.dashboardButton} onClick={handleLogout}>Logout</button>
+                </div>
             </div>
         </div>
     </section>

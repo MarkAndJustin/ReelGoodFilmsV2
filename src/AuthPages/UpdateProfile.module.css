@@ -44,3 +44,10 @@
 .linkToLogin:focus {
     color: goldenrod;
 }
+
+@media (max-width: 1000px) {
+    .card {
+        width: 90%;
+        padding: 30px;
+    }
+}

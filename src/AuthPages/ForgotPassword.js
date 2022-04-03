@@ -45,7 +45,7 @@ const ForgotPassword = () => {
                 <button className={styles.formButton} disabled={loading} type='submit'>Reset Password</button>
             </form>
         <div className="forgotPassLink">
-            <Link to='/login'>Login</Link>
+            <Link to='/'>Login</Link>
         </div>
         <div className="signinLink">
            Need an account? <Link to='/signup'>

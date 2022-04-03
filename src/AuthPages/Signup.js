@@ -67,7 +67,7 @@ const Signup = () => {
             <button className={styles.signUpButton} disabled={loading} type='submit'>Submit</button>
         </form>
         <div className={styles.signInLinkContainer}>
-            Already have an account? <Link className={styles.signInLink} to='/login'>Sign in.</Link>
+            Already have an account? <Link className={styles.signInLink} to='/'>Sign in.</Link>
         </div>
     </div>
     </section>

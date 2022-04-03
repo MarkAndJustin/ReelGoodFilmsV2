@@ -79,7 +79,6 @@ const MovieDetails = (props) => {
                 return (
                   <div key={actor.id}>
                     <p>{actor.original_name}</p>
-                    <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.original_name} />
                   </div>
                   )
                 })

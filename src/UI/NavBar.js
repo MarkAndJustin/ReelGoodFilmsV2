@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 //Components
 import SearchForm from "./SearchForm";
+import SearchFormMobile from "./SearchFormMobile";
 import { useAuth } from "../store/AuthContext";
 import { FaBars } from "react-icons/fa"
 import { IoClose } from "react-icons/io5"
@@ -16,11 +17,17 @@ const NavBar = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        setFixNav(true)
+      } else {
+        setFixNav(false)
+      }
+      
       setFixNav(window.scrollY > 10);
     });
 
     return () => {
-      window.removeEventListener('scroll')
+      window.removeEventListener('scroll', null)
     }
   }, []);
 
@@ -41,12 +48,12 @@ const NavBar = () => {
           </Link>
           <ul className={styles.navList}>
             {!isLoggedIn && <li className={styles.navItem}>
-              <Link className={styles.navLink} to='/login'>
+              <Link className={styles.navLink} to='/'>
                 Login              
               </Link>
             </li>}
             <li className={styles.navItem}>
-              <Link className={styles.navLink} to='/'>
+              <Link className={styles.navLink} to='/dashboard'>
                 Profile              
               </Link>
             </li>
@@ -57,19 +64,20 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-          {isLoggedIn && <SearchForm className={styles.searchForm} />}
+          {isLoggedIn && <SearchForm />}
           {isNavOpen ? <IoClose onClick={handleMobileNavClose} className={styles.close}/> : 
             <FaBars onClick={handleMobileNav} className={styles.hamburger}/>}
       </div>
       {isNavOpen && 
-       <ul className={styles.navListMobile}>
+      <div className="wrapper">
+        <ul className={styles.navListMobile}>
             {!isLoggedIn && <li className={styles.navItemMobile}>
-              <Link className={styles.navLink} to='/login'>
+              <Link className={styles.navLink} to='/'>
                 Login              
               </Link>
             </li>}
             <li className={styles.navItemMobile}>
-              <Link className={styles.navLink} to='/'>
+              <Link className={styles.navLink} to='/dashboard'>
                 Profile              
               </Link>
             </li>
@@ -79,9 +87,10 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <SearchForm className={styles.sfmobile}/>
+              <SearchFormMobile />
             </li>
-          </ul>}
+          </ul>      
+      </div>}
     </nav>
   )
 }

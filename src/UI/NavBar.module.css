@@ -67,13 +67,15 @@ nav {
 }
 
 .navListMobile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: none;
 }
 
 .navItemMobile {
   padding: 10px 0;
+}
+
+.close {
+  display: none;
 }
 
 @media (max-width: 1000px) {
@@ -81,7 +83,16 @@ nav {
     display: none;
   }
 
+  .navListMobile {
+    display: flex;
+    flex-direction: column;
+  }
+
   .hamburger {
+    display: block;
+  }
+
+  .close {
     display: block;
   }
 }

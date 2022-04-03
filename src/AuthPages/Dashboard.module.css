@@ -1,6 +1,12 @@
 .dashboard {
     background-color: black;
-    min-height: calc(100vh - 50px);
+}
+
+.dashboardWrapper {
+    width: 90%;
+    margin: auto;
+    background-color: black;
+    min-height: calc(100vh - 49px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,4 +56,11 @@
 
 h3 {
     color: black;
+}
+
+@media (max-width: 1000px) {
+    .card {
+        width: 100%;
+        padding: 30px;
+    }
 }

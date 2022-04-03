@@ -59,11 +59,11 @@ function App() {
     <AuthProvider>
       <NavBar />
       <Routes>
-        <Route path="/login" element={<Login />}/>
+        <Route path="/" element={<Login />}/>
         <Route path="/signup" element={<Signup />}/>
         <Route path="/profile" element={<Profile />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/" element={
+        <Route path="/dashboard" element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>}/>
@@ -71,7 +71,10 @@ function App() {
             <PrivateRoute>
               <UpdateProfile />
             </PrivateRoute>} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={
+          <PrivateRoute>
+              <Home />
+          </PrivateRoute>} />
         <Route path='/movie/:movieID' element={<MovieDetails handleAddMovie={handleAddMovie}/>} />
         <Route path='/results' element={<SearchResults />} /> 
         <Route path='/mylist' element={<MyList favMovies={favMovies} handleDeleteMovie={handleDeleteMovie}/>} />

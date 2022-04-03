@@ -19,6 +19,7 @@
   width: 100%;
 }
 
+
 .searchForm input[type="text"] {
   animation: grow 0.5s forwards;
   background: none;
@@ -34,5 +35,11 @@
     width: 0;
   } to {
     width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .searchForm {
+    display: none;
   }
 }
