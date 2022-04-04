@@ -3,9 +3,7 @@ import styles from './SearchResults.module.css';
 
 const SearchResults = () => {
   const { state } = useLocation();
-  console.log(state)
-
-
+  
   return (
     <section className={styles.searchPage}>
       <div className={`wrapper ${styles.searchPageWrapper}`}>
@@ -13,8 +11,8 @@ const SearchResults = () => {
         <div className={styles.searchMoviesContainer}>
           {state.map(movie => {
           return (
-            <div className={styles.movieCard}>
-              <Link to={`/movie/${movie.id}`} key={movie.id}>
+            <div className={styles.movieCard} key={movie.id}>
+              <Link to={`/movie/${movie.id}`} >
               <div key={movie.id} className={styles.searchMovieOverlay}>
                 <img 
                   className={styles.searchResultsPoster}
