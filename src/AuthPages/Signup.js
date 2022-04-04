@@ -19,6 +19,10 @@ const Signup = () => {
             return setError('Passwords do not match')
         }
 
+        if(passwordRef.current.value.length < 6) {
+            return setError('Password needs to be at least 6 characters')
+        }
+
         try {
             setError('')
             setLoading(true)
@@ -36,7 +40,9 @@ const Signup = () => {
         <div className={styles.card}>
         <form onSubmit={handleSubmit}>
             <h2>Sign Up</h2>
-            {error && alert(error)}
+            {error &&  <div className={styles.errorMessage}>
+                            <p>{error}</p>
+                        </div>}
             <div className={styles.formGroup}>
                 <label htmlFor="emailInput">Your Email</label>
                 <input
@@ -52,7 +58,7 @@ const Signup = () => {
                     className={styles.formInput} 
                     type="password" 
                     id="passwordInput" 
-                    placeholder='password Here' 
+                    placeholder='Please enter your password here' 
                     ref={passwordRef}/>
             </div>
             <div className={styles.formGroup}>
@@ -61,13 +67,13 @@ const Signup = () => {
                     className={styles.formInput} 
                     type="password" 
                     id="passwordConfirmInput" 
-                    placeholder='retype password Here' 
+                    placeholder='Please retype your password here' 
                     ref={passwordConfirmRef}/>
             </div>
             <button className={styles.signUpButton} disabled={loading} type='submit'>Submit</button>
         </form>
         <div className={styles.signInLinkContainer}>
-            Already have an account? <Link className={styles.signInLink} to='/'>Sign in.</Link>
+            <Link className={styles.signInLink} to='/'>Already have an account? Sign in.</Link>
         </div>
     </div>
     </section>

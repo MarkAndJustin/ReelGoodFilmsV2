@@ -40,24 +40,28 @@ function App() {
       }
       setFavMovies(newState)
     })
-  }, []);
+  }, [favMovies.length]);
 
   //The problem is that there needs to be a ref for the specific movie, right now removes everything
   const handleDeleteMovie = (movie) => {
     const database = getDatabase();
     const dbRef = ref(database, `favorite-movies/${movie}`);
     remove(dbRef)
+    console.log(favMovies.length)
   }
 
   const handleAddMovie = (movie) => {
     const database = getDatabase();
     const dbRef = ref(database, `favorite-movies/`);
     push(dbRef, movie);
+    console.log(favMovies.length)
   }
+
+  console.log(favMovies.length)
 
   return (
     <AuthProvider>
-      <NavBar />
+      <NavBar badgeLength={favMovies.length}/>
       <Routes>
         <Route path="/" element={<Login />}/>
         <Route path="/signup" element={<Signup />}/>

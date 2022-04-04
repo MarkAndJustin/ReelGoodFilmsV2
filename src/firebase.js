@@ -1,35 +1,17 @@
-// Import the functions you need from the SDKs you need
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
-// TODO: Add SDKs for Firebase products that you want to use
-
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-
-// Your web app's Firebase configuration
-
 const firebaseConfig = {
-
-  apiKey: "AIzaSyAXXxY-y1K8Y7eunVvk9DbCFLu9OJIvIwc",
-
-  authDomain: "reelgoodfilms-5924d.firebaseapp.com",
-
-  databaseURL: "https://reelgoodfilms-5924d-default-rtdb.firebaseio.com",
-
-  projectId: "reelgoodfilms-5924d",
-
-  storageBucket: "reelgoodfilms-5924d.appspot.com",
-
-  messagingSenderId: "292834483300",
-
-  appId: "1:292834483300:web:5c736efc74b48cf5921371"
-
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
 // Initialize Firebase
-
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 

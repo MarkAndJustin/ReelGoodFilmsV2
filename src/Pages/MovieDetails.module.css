@@ -29,7 +29,8 @@
 }
 
 .movieOverview {
-  color: lightslategrey;
+  color: lightgray;
+  text-shadow: 2px 2px black;
   padding: 40px 0;
   font-size: 1rem;
   line-height: 40px;

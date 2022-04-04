@@ -22,12 +22,13 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
+  transition: all 0.2s ease-in-out;
 }
 
 .searchResultsPoster {
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .searchResultsPoster:hover {
@@ -35,10 +36,24 @@
 }
 
 .searchResultsPoster:hover + .searchMovieDescription {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .searchHeading {
   color: white;
   font-size: 1.5rem;
+}
+
+.movieCard {
+  margin-bottom: 20px;
+}
+
+.movieTitle {
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .searchMoviesContainer {
+    justify-content: center;
+  }
 }

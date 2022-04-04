@@ -13,7 +13,8 @@ const SearchResults = () => {
         <div className={styles.searchMoviesContainer}>
           {state.map(movie => {
           return (
-            <Link to={`/movie/${movie.id}`} key={movie.id}>
+            <div className={styles.movieCard}>
+              <Link to={`/movie/${movie.id}`} key={movie.id}>
               <div key={movie.id} className={styles.searchMovieOverlay}>
                 <img 
                   className={styles.searchResultsPoster}
@@ -25,6 +26,7 @@ const SearchResults = () => {
                 </div>
               </div>
             </Link>
+            </div>
           )
         })}
         </div>

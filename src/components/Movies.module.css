@@ -10,7 +10,6 @@
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  scrollbar-color: yellow;
   scrollbar-width: none;
 }
 
@@ -29,7 +28,7 @@
 }
 
 .movieImage:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .movieOverlay {
@@ -38,7 +37,7 @@
   visibility: hidden;
   left: 0;
   bottom: 0;
-  transition: all 0.3s ease-in;
+  transition: transform 0.2s ease-in-out;
   transform: translateY(100%);
   width: 100%;
   padding: 20px 0;
@@ -47,8 +46,7 @@
 
 .movieImage:hover + .movieOverlay {
   visibility: visible;
-  transform: translateY(0);
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .movieTitle {

@@ -19,6 +19,10 @@ const UpdateProfile = () => {
             return setError('Passwords do not match')
         }
 
+         if(passwordRef.current.value.length < 6) {
+            return setError('Password needs to be at least 6 characters')
+        }
+
         const promises = []
         setLoading(true)
         setError('')
@@ -45,7 +49,9 @@ const UpdateProfile = () => {
         <div className={styles.card}>
              <form onSubmit={handleSubmit}>
             <h2>Update Profile</h2>
-            {error && alert(error)}
+            {error && <div className={styles.errorMessage}>
+                            <p>{error}</p>
+                        </div>}
             <div className={styles.formGroup}>
                 <label htmlFor="emailInput">Your Email</label>
                 <input

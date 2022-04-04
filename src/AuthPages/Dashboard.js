@@ -5,14 +5,14 @@ import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const [error, setError] = useState("")
+    const [error, setError] = useState("");
     const {currentUser, logout} = useAuth();
     const handleLogout = async () => {
         setError("")
 
         try {
             await logout()
-            navigate('/login');
+            navigate('/');
         } catch {
             setError('Failed to logout')
         }

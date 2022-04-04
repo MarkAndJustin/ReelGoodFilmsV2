@@ -11,6 +11,20 @@ nav {
   background-color: black;
 }
 
+.myList {
+  position: relative;
+}
+
+span {
+  background-color: goldenrod;
+  color: white;
+  position: absolute;
+  top: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
+
 .navWrapper {
   width: 90%;
   margin: 0 auto;
@@ -20,7 +34,7 @@ nav {
   align-items: center;
 }
 
-.logo {
+.navLogo {
   color: goldenrod;
 }
 .navContainer {
@@ -68,6 +82,8 @@ nav {
 
 .navListMobile {
   display: none;
+  width: 90%;
+  margin: auto;
 }
 
 .navItemMobile {
@@ -79,6 +95,10 @@ nav {
 }
 
 @media (max-width: 1000px) {
+  nav {
+    background-color: black;
+  }
+
   .navList {
     display: none;
   }
@@ -98,7 +118,7 @@ nav {
 }
 
 @media (max-width: 760px) {
-  .logo {
+  .navLogo {
     font-size: 1.5rem;
   }
 }

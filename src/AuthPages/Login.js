@@ -20,7 +20,7 @@ const Login = () => {
             await login(emailRef.current.value, passwordRef.current.value);
             navigate('/home')
         } catch {
-            setError('Failed to sign in')
+            setError('Failed to sign in, please try again')
         }
     }
 
@@ -29,7 +29,9 @@ const Login = () => {
             <div className={styles.card}>
                 <form onSubmit={handleSubmit}>
                     <h2 className={styles.heading}>Login</h2>
-                    {error && alert(error)}
+                    {error && <div className={styles.errorMessage}>
+                            <p>{error}</p>
+                        </div>}
                     <div className={styles.formGroup}>
                         <label htmlFor="emailInput">Your Email</label>
                         <input

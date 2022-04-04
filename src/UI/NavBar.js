@@ -10,7 +10,7 @@ import { FaBars } from "react-icons/fa"
 import { IoClose } from "react-icons/io5"
 
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [fixNav, setFixNav] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { isLoggedIn } = useAuth();
@@ -44,7 +44,7 @@ const NavBar = () => {
       <div className={styles.navWrapper}>
         <div className={styles.navContainer}>
           <Link to='/home'>
-            <h2 className={styles.logo}>Reel Good Films</h2>      
+            <h2 className={styles.navLogo}>Reel Good Films</h2>      
           </Link>
           <ul className={styles.navList}>
             {!isLoggedIn && <li className={styles.navItem}>
@@ -57,19 +57,20 @@ const NavBar = () => {
                 Profile              
               </Link>
             </li>
-            <li className={styles.navItem}>
+            {isLoggedIn && <li className={`${styles.navItem} ${styles.myList}`}>
               <Link className={styles.navLink} to='/mylist'>
                 My List
               </Link>
-            </li>
+              {props.badgeLength > 0 && <span>{props.badgeLength}</span>}
+            </li>}
           </ul>
         </div>
-          {isLoggedIn && <SearchForm />}
-          {isNavOpen ? <IoClose onClick={handleMobileNavClose} className={styles.close}/> : 
-            <FaBars onClick={handleMobileNav} className={styles.hamburger}/>}
+        {isLoggedIn && <SearchForm />}
+        {isNavOpen ? 
+          <IoClose onClick={handleMobileNavClose} className={styles.close}/> : 
+          <FaBars onClick={handleMobileNav} className={styles.hamburger}/>}
       </div>
       {isNavOpen && 
-      <div className="wrapper">
         <ul className={styles.navListMobile}>
             {!isLoggedIn && <li className={styles.navItemMobile}>
               <Link className={styles.navLink} to='/'>
@@ -81,16 +82,16 @@ const NavBar = () => {
                 Profile              
               </Link>
             </li>
-            <li className={styles.navItemMobile}>
+            <li className={`${styles.navItem} ${styles.myList}`}>
               <Link className={styles.navLink} to='/mylist'>
                 My List
               </Link>
+              {props.badgeLength > 0 && <span>{props.badgeLength}</span>}
             </li>
             <li>
               <SearchFormMobile />
             </li>
-          </ul>      
-      </div>}
+          </ul>}
     </nav>
   )
 }

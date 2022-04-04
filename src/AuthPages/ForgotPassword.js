@@ -31,7 +31,9 @@ const ForgotPassword = () => {
         <div className={styles.card}>
             <form onSubmit={handleSubmit}>
                 <h2>Password Reset</h2>
-                {error && alert(error)}
+                {error && <div className={styles.errorMessage}>
+                            <p>{error}</p>
+                        </div>}
                 {message && <p className={styles.resetMessage}>{message}</p>}
                 <div className={styles.formGroup}>
                     <label htmlFor="emailInput">Your Email:</label>
@@ -39,19 +41,15 @@ const ForgotPassword = () => {
                         className={styles.formInput}
                         type="email" 
                         id="emailInput" 
-                        placeholder='Email Here' 
+                        placeholder='Please type your email here' 
                         ref={emailRef} />
                 </div>
                 <button className={styles.formButton} disabled={loading} type='submit'>Reset Password</button>
             </form>
-        <div className="forgotPassLink">
-            <Link to='/'>Login</Link>
-        </div>
-        <div className="signinLink">
-           Need an account? <Link to='/signup'>
-                Sign Up.
-           </Link>
-        </div>
+            <div className={styles.linkContainer}>
+                <Link to='/' className={styles.forgotPasswordLink} >Back to login</Link>
+                <Link to='/signup' className={styles.forgotPasswordLink}>Need an account?</Link>
+            </div>
         </div>
     </section>
   )

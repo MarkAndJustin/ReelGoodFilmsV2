@@ -55,11 +55,11 @@ const Home = () => {
   }
 
   useEffect(() => {
-    let trendingMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402';
-    let actionMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402&with_genres=28';
-    let animatedMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402&with_genres=16';
-    let comedyMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402&with_genres=35';
-    let horrorMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=abca8adda9e521b362fff5ab08ec8402&with_genres=27';
+    let trendingMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
+    let actionMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=28`;
+    let animatedMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=16`;
+    let comedyMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=35`;
+    let horrorMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=27`;
     
     const reqOne = axios.get(trendingMovies);
     const reqTwo = axios.get(actionMovies);
