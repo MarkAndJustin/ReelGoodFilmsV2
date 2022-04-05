@@ -52,11 +52,11 @@ const NavBar = (props) => {
                 Login              
               </Link>
             </li>}
-            <li className={styles.navItem}>
+            {isLoggedIn && <li className={styles.navItem}>
               <Link className={styles.navLink} to='/dashboard'>
                 Profile              
               </Link>
-            </li>
+            </li>}
             {isLoggedIn && <li className={`${styles.navItem} ${styles.myList}`}>
               <Link className={styles.navLink} to='/mylist'>
                 My List
@@ -77,20 +77,20 @@ const NavBar = (props) => {
                 Login              
               </Link>
             </li>}
-            <li className={styles.navItemMobile}>
+            {isLoggedIn && <li className={styles.navItemMobile}>
               <Link className={styles.navLink} to='/dashboard'>
                 Profile              
               </Link>
-            </li>
-            <li className={`${styles.navItem} ${styles.myList}`}>
+            </li>}
+            {isLoggedIn && <li className={`${styles.navItem} ${styles.myList}`}>
               <Link className={styles.navLink} to='/mylist'>
                 My List
               </Link>
               {props.badgeLength > 0 && <span>{props.badgeLength}</span>}
-            </li>
-            <li>
+            </li>}
+            {isLoggedIn && <li>
               <SearchFormMobile />
-            </li>
+            </li>}
           </ul>}
     </nav>
   )
