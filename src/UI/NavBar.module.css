@@ -77,7 +77,6 @@ span {
 .hamburger, .close {
   font-size: 2rem;
   color: white;
-  margin-top: 10px;
 }
 
 .navListMobile {
@@ -87,7 +86,7 @@ span {
 }
 
 .navItemMobile {
-  padding: 10px 0;
+  padding: 25px 0;
 }
 
 .close {
@@ -117,8 +116,18 @@ span {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1000px) {
   .navLogo {
+    font-size: 1.5rem;
+  }
+
+    .navItemMobile:first-of-type {
+      padding: 25px 0 0 0;
+    }
+}
+
+@media (max-width: 480px) {
+  .hamburger {
     font-size: 1.5rem;
   }
 }

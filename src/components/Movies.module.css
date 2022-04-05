@@ -52,3 +52,17 @@
 .movieTitle {
     color: white;
 }
+
+
+@media (max-width: 1000px) {
+  .movieOverlay {
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+@media (max-width: 480px) {
+  .movieImage {
+    width: 300px;
+  }
+}

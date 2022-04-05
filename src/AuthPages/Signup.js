@@ -39,7 +39,7 @@ const Signup = () => {
     <section className={styles.signUp}>
         <div className={styles.card}>
         <form onSubmit={handleSubmit}>
-            <h2>Sign Up</h2>
+            <h2 className={styles.signUpHeading}>Sign Up</h2>
             {error &&  <div className={styles.errorMessage}>
                             <p>{error}</p>
                         </div>}

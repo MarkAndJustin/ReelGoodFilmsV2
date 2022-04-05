@@ -30,7 +30,7 @@ const ForgotPassword = () => {
     <section className={styles.forgotPassword}>
         <div className={styles.card}>
             <form onSubmit={handleSubmit}>
-                <h2>Password Reset</h2>
+                <h2 className={styles.forgotPasswordHeading}>Password Reset</h2>
                 {error && <div className={styles.errorMessage}>
                             <p>{error}</p>
                         </div>}

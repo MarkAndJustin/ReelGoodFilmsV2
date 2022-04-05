@@ -48,7 +48,7 @@ const UpdateProfile = () => {
     <section className={styles.updateProfile}>
         <div className={styles.card}>
              <form onSubmit={handleSubmit}>
-            <h2>Update Profile</h2>
+            <h2 className={styles.updateProfileHeading}>Update Profile</h2>
             {error && <div className={styles.errorMessage}>
                             <p>{error}</p>
                         </div>}
@@ -86,7 +86,7 @@ const UpdateProfile = () => {
             <button className={styles.updateButton} disabled={loading} type='submit'>Update</button>
         </form>
         <div className={styles.linkToLoginContainer}>
-            Already have an account? <Link className={styles.linkToLogin} to='/home'>Cancel</Link>
+            <Link className={styles.linkToLogin} to='/home'>Already have an account? Cancel</Link>
         </div>
         </div>
     </section>

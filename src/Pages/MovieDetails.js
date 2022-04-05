@@ -77,9 +77,7 @@ const MovieDetails = (props) => {
             <div className={styles.castList}>
               {cast.map(actor => {
                 return (
-                  <div key={actor.id}>
-                    <p>{actor.original_name}</p>
-                  </div>
+                    <p key={actor.id}>{actor.original_name}</p>
                   )
                 })
               }   

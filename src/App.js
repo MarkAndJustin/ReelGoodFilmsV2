@@ -47,17 +47,13 @@ function App() {
     const database = getDatabase();
     const dbRef = ref(database, `favorite-movies/${movie}`);
     remove(dbRef)
-    console.log(favMovies.length)
   }
 
   const handleAddMovie = (movie) => {
     const database = getDatabase();
     const dbRef = ref(database, `favorite-movies/`);
     push(dbRef, movie);
-    console.log(favMovies.length)
   }
-
-  console.log(favMovies.length)
 
   return (
     <AuthProvider>

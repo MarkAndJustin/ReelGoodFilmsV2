@@ -9,7 +9,7 @@ const Movies = (props) => {
         <div className={styles.movieList}>
           {props.moviesList.map(movie => {
             return (
-              <div key={movie.id}>
+              <div key={movie.id} className={styles.movieCard}>
                   <Link to={`/movie/${movie.id}`}>
                     <div className={styles.movieContainer}>
                       <img  

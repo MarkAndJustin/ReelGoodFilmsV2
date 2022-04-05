@@ -65,3 +65,9 @@
         padding: 30px;
     }
 }
+
+@media (max-width: 480px) {
+    .signUpHeading {
+        font-size: 1.5rem;
+    }
+}
